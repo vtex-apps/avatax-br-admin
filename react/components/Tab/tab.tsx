@@ -1,22 +1,27 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { Tab } from 'vtex.styleguide'
 
-type WithChildren<T> = T & { children?: React.ReactNode }
-type Props = WithChildren<{
+interface Props {
   label: string
   currentTabNumber: number
-}>
+}
 
-function TabArea({ label, currentTabNumber, children }: Props) {
+const TabArea: FC<Props> = (props) => {
   const [tab, setTab] = useState({
     currentTab: 1,
   })
+
+  const { currentTabNumber, label, children } = props
+  let disableNumber = 1
+
+  if (currentTabNumber === 1) disableNumber = 2
 
   return (
     <Tab
       label={label}
       active={tab.currentTab === currentTabNumber}
       onClick={() => setTab({ currentTab: currentTabNumber })}
+      disable="true"
     >
       {children}
     </Tab>

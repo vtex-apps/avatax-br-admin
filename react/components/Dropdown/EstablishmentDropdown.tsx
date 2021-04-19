@@ -13,7 +13,6 @@ function EstablishmentDropdown({ name, label, options }: Props) {
   const provider = useContext(EstablishmentContext)
 
   const updateValue = (event: { target: { value?: string } }) => {
-    // console.log(event.target.value)
     provider.updateEstablishment({ [name]: event.target.value ?? '' })
   }
 
