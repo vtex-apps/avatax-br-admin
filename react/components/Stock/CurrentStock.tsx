@@ -1,10 +1,15 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useContext } from 'react'
+import { useQuery } from 'react-apollo'
 import { Table } from 'vtex.styleguide'
 
+import EstablishmentContext from '../../context/EstablishmentContext'
+import getEstablishmentQuery from '../../queries/getEstablishment.gql'
+
 const CurrentStock: FC = () => {
-  const [documents] = useState({
-    tableDocuments: [],
-  })
+  const context = useContext(EstablishmentContext)
+  const { loading, data: getEstablishment } = useQuery<GetEstablishment>(
+    getEstablishmentQuery
+  )
 
   const defaultSchema = {
     properties: {
@@ -17,10 +22,15 @@ const CurrentStock: FC = () => {
     },
   }
 
+  const update = (establishment: Establishment) => {
+    context.updateEstablishment(establishment)
+    context.setEdit(true)
+  }
+
   const lineActions = [
     {
       label: () => `Editar`,
-      // onClick: ({ rowData }) => handleDockData(rowData.id, false),
+      onClick: (data: { rowData: Establishment }) => update(data.rowData),
     },
     {
       label: () => `Deletar`,
@@ -29,13 +39,15 @@ const CurrentStock: FC = () => {
     },
   ]
 
+  if (loading) return <div>Carregando...</div>
+
   return (
     <>
       <div className="mb5">
         <Table
           fullWidth
           schema={defaultSchema}
-          items={documents.tableDocuments}
+          items={getEstablishment?.establishments}
           lineActions={lineActions}
         />
       </div>

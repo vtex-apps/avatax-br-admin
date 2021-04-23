@@ -21,3 +21,7 @@ interface Establishment {
   dockName?: string
   [index: string]: string
 }
+
+interface GetEstablishment {
+  establishments: Establishment[]
+}

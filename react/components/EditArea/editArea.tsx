@@ -6,8 +6,6 @@ import EstablishmentDropdown from '../Dropdown/EstablishmentDropdown'
 import AuthInputPassword from '../InputPassword/AuthInputPassword'
 import AuthInput from '../Inputs/AuthInput'
 import EstablishmentInput from '../Inputs/EstablishmentInput'
-import AuthProvider from '../Provider/AuthProvider'
-import EstablishmentProvider from '../Provider/EstablishmentProvider'
 import {
   activitySector,
   city,
@@ -39,47 +37,43 @@ const EditArea: FC = () => {
     <>
       <div className="flex flex-column flex-row-ns">
         <div className="w-100">
-          <AuthProvider>
-            <AuthInputPassword {...clientId} />
-            <AuthInputPassword {...clientSecret} />
-            <AuthInput {...clientCompanyLocation} />
-          </AuthProvider>
+          <AuthInputPassword {...clientId} />
+          <AuthInputPassword {...clientSecret} />
+          <AuthInput {...clientCompanyLocation} />
 
-          <EstablishmentProvider>
-            <DividerArea />
-            <h3 className="t-heading-3">Informações</h3>
+          <DividerArea />
+          <h3 className="t-heading-3">Informações</h3>
 
-            <EstablishmentInput {...dockId} />
-            <EstablishmentInput {...dockName} />
-            <EstablishmentDropdown {...messageType} />
-            <EstablishmentDropdown {...activitySector} />
-            <EstablishmentDropdown {...icmsTaxPayer} />
-            <EstablishmentDropdown {...taxRegime} />
+          <EstablishmentInput {...dockId} />
+          <EstablishmentInput {...dockName} />
+          <EstablishmentDropdown {...messageType} />
+          <EstablishmentDropdown {...activitySector} />
+          <EstablishmentDropdown {...icmsTaxPayer} />
+          <EstablishmentDropdown {...taxRegime} />
 
-            <EstablishmentDropdown {...entityType} />
+          <EstablishmentDropdown {...entityType} />
 
-            <EstablishmentInput {...stateTaxId} />
+          <EstablishmentInput {...stateTaxId} />
 
-            <DividerArea />
+          <DividerArea />
 
-            <h3 className="t-heading-3">Localidade</h3>
+          <h3 className="t-heading-3">Localidade</h3>
 
-            <EstablishmentInput {...street} />
+          <EstablishmentInput {...street} />
 
-            <EstablishmentInput {...neighborhood} />
-            <EstablishmentInput {...zipCode} />
-            <EstablishmentInput {...cityCode} />
-            <EstablishmentInput {...city} />
-            <EstablishmentInput {...state} />
-            <EstablishmentDropdown {...country} />
-            <EstablishmentInput {...streetNumber} />
-            <EstablishmentInput {...complement} />
-            <EstablishmentInput {...phone} />
-            <EstablishmentInput {...cnpj} />
-            <EstablishmentInput {...suframa} />
+          <EstablishmentInput {...neighborhood} />
+          <EstablishmentInput {...zipCode} />
+          <EstablishmentInput {...cityCode} />
+          <EstablishmentInput {...city} />
+          <EstablishmentInput {...state} />
+          <EstablishmentDropdown {...country} />
+          <EstablishmentInput {...streetNumber} />
+          <EstablishmentInput {...complement} />
+          <EstablishmentInput {...phone} />
+          <EstablishmentInput {...cnpj} />
+          <EstablishmentInput {...suframa} />
 
-            <EstablishmentButtonSave />
-          </EstablishmentProvider>
+          <EstablishmentButtonSave />
         </div>
       </div>
     </>

@@ -4,6 +4,7 @@ import EstablishmentContext from '../../context/EstablishmentContext'
 
 const EstablishmentProvider: FC = (props) => {
   const [establishment, setEstablishment] = useState<Establishment>({})
+  const [edit, setEdit] = useState<boolean>(false)
 
   const updateEstablishment = (object: Establishment) => {
     setEstablishment({
@@ -14,7 +15,7 @@ const EstablishmentProvider: FC = (props) => {
 
   return (
     <EstablishmentContext.Provider
-      value={{ establishment, updateEstablishment }}
+      value={{ establishment, updateEstablishment, edit, setEdit }}
     >
       {props.children}
     </EstablishmentContext.Provider>

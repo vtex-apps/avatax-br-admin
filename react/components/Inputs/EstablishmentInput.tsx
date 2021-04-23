@@ -18,6 +18,8 @@ function EstablishmentInput({
 }: Props) {
   const provider = useContext(EstablishmentContext)
 
+  // console.log(provider.establishment)
+
   const updateValue = (event: { target: { value?: string } }) => {
     provider.updateEstablishment({ [name]: event.target.value ?? '' })
   }

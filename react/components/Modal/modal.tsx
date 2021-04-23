@@ -1,18 +1,20 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useContext } from 'react'
 import { Modal, Button } from 'vtex.styleguide'
 
+import EstablishmentContext from '../../context/EstablishmentContext'
+
 const ModalArea: FC = (props) => {
-  const [modal, setModal] = useState(false)
+  const context = useContext(EstablishmentContext)
 
   return (
     <Modal
-      isOpen={modal}
+      isOpen={context.edit}
       title="Editar Estoque"
       responsiveFullScreen
       bottomBar={
         <div className="nowrap">
           <span className="mr4">
-            <Button variation="tertiary" onClick={() => setModal(false)}>
+            <Button variation="tertiary" onClick={() => context.setEdit(false)}>
               Cancelar
             </Button>
           </span>
@@ -26,7 +28,7 @@ const ModalArea: FC = (props) => {
           </span>
         </div>
       }
-      onClose={() => setModal(false)}
+      onClose={() => context.setEdit(false)}
     >
       {props.children}
     </Modal>

@@ -5,6 +5,7 @@ import AddStock from './components/Stock/AddStock'
 import CurrentStock from './components/Stock/CurrentStock'
 import EditArea from './components/EditArea/editArea'
 import ModalArea from './components/Modal/modal'
+import EstablishmentProvider from './components/Provider/EstablishmentProvider'
 
 // import axios, { AxiosResponse } from 'axios'
 
@@ -54,18 +55,20 @@ const AvataxAdmin: FC = () => {
             >
               <AddStock />
             </Tab>
+
             <Tab
               label="Estoques atuais"
               active={tab.currentTab === 2}
               onClick={() => setTab({ currentTab: 2 })}
             >
-              <CurrentStock />
+              <EstablishmentProvider>
+                <CurrentStock />
+                <ModalArea>
+                  <EditArea />
+                </ModalArea>
+              </EstablishmentProvider>
             </Tab>
           </Tabs>
-
-          <ModalArea>
-            <EditArea />
-          </ModalArea>
         </PageBlock>
       </Layout>
     </>

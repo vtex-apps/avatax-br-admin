@@ -1,0 +1,28 @@
+query getEstablishment{
+ establishments {
+    id
+    activitySector
+    icmsTaxPayer
+    taxRegime
+    entityType
+    stateTaxId
+    street
+    neighborhood
+    zipCode
+    cityCode
+    city
+    state
+    country
+    streetNumber
+    complement
+    phone
+    cnpj
+    suframa
+    messageType
+    dockId
+    dockName
+    clientId
+    clientSecret
+    clientCompanyLocation
+  }
+}
