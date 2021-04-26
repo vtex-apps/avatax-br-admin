@@ -38,5 +38,9 @@
     "lint-staged": "^10.5.1",
     "prettier": "^2.2.0",
     "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "git": "^0.1.5",
+    "git-gui": "^0.0.7"
   }
 }

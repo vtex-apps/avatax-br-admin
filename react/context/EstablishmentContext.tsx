@@ -2,15 +2,25 @@ import React from 'react'
 
 interface EstablishmentContextType {
   establishment: Establishment
-  updateEstablishment: (establishment: Establishment) => void
+  setEstablishment: (establishment: Establishment) => void
   edit: boolean
   setEdit: (edit: boolean) => void
+  loading: boolean
+  establishmentList?: Establishment[]
+  update: (establishment: Establishment) => void
+  deleteEstablishments: (documentId: string) => void
+  saveConfigurations: (documentId: string) => void
 }
 const EstablishmentContext = React.createContext<EstablishmentContextType>({
   establishment: {},
-  updateEstablishment: () => {},
+  setEstablishment: () => {},
   edit: false,
   setEdit: () => {},
+  loading: true,
+  establishmentList: [],
+  update: () => {},
+  deleteEstablishments: () => {},
+  saveConfigurations: () => {},
 })
 
 export default EstablishmentContext

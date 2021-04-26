@@ -1,10 +1,12 @@
 import React, { FC, useContext } from 'react'
 import { Modal, Button } from 'vtex.styleguide'
 
+import AuthContext from '../../context/AuthContext'
 import EstablishmentContext from '../../context/EstablishmentContext'
 
 const ModalArea: FC = (props) => {
   const context = useContext(EstablishmentContext)
+  const contextAuth = useContext(AuthContext)
 
   return (
     <Modal
@@ -21,7 +23,7 @@ const ModalArea: FC = (props) => {
           <span>
             <Button
               variation="primary"
-              // onClick={() => saveConfigurations(authsEdit.id, true)}
+              onClick={() => context.saveConfigurations(contextAuth.auth.id)}
             >
               Salvar
             </Button>
