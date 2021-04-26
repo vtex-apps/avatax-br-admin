@@ -10,6 +10,9 @@ interface EstablishmentContextType {
   update: (establishment: Establishment) => void
   deleteEstablishments: (documentId: string) => void
   saveConfigurations: (documentId: string) => void
+  showAlert: boolean
+  setShowAlert: (showAlert: boolean) => void
+  handleCloseAlert: () => void
 }
 const EstablishmentContext = React.createContext<EstablishmentContextType>({
   establishment: {},
@@ -21,6 +24,9 @@ const EstablishmentContext = React.createContext<EstablishmentContextType>({
   update: () => {},
   deleteEstablishments: () => {},
   saveConfigurations: () => {},
+  showAlert: false,
+  setShowAlert: () => {},
+  handleCloseAlert: () => {},
 })
 
 export default EstablishmentContext

@@ -23,7 +23,10 @@ const ModalArea: FC = (props) => {
           <span>
             <Button
               variation="primary"
-              onClick={() => context.saveConfigurations(contextAuth.auth.id)}
+              onClick={() => {
+                context.saveConfigurations(contextAuth.auth.id)
+                alert('Dados salvos com sucesso!')
+              }}
             >
               Salvar
             </Button>

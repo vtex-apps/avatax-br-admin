@@ -11,6 +11,12 @@ const EstablishmentProvider: FC = (props) => {
   const [establishment, setEstablishments] = useState<Establishment>({})
   const [edit, setEdit] = useState<boolean>(false)
 
+  const [showAlert, setShowAlert] = useState(false)
+
+  const handleCloseAlert = () => {
+    setShowAlert(false)
+  }
+
   const setEstablishment = (object: Establishment) => {
     setEstablishments({
       ...establishment,
@@ -41,12 +47,14 @@ const EstablishmentProvider: FC = (props) => {
   const [saveConfiguration] = useMutation(saveConfigurationMutation)
 
   const saveConfigurations = async (documentId: string) => {
-    await saveConfiguration({
+    const valueReturn = await saveConfiguration({
       variables: {
         esta: { ...establishment, ...contextAuth.auth },
         documentId,
       },
     })
+
+    if (valueReturn.data.saveConfiguration) setShowAlert(true)
     setEdit(false)
     refetch()
   }
@@ -63,6 +71,9 @@ const EstablishmentProvider: FC = (props) => {
         update,
         deleteEstablishments,
         saveConfigurations,
+        showAlert,
+        setShowAlert,
+        handleCloseAlert,
       }}
     >
       {props.children}

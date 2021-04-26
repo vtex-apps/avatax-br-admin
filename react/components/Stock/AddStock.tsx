@@ -1,5 +1,4 @@
-import React, { FC, useState } from 'react'
-import { Alert } from 'vtex.styleguide'
+import React, { FC } from 'react'
 
 import EstablishmentButtonAdd from '../Button/EstablishmentButtonAdd'
 import { DividerArea } from '../Divider/divider'
@@ -36,12 +35,6 @@ import {
 } from '../Values/values'
 
 const AddStock: FC = () => {
-  const [showAlert, setShowAlert] = useState(false)
-
-  const handleCloseAlert = () => {
-    setShowAlert(false)
-  }
-
   return (
     <>
       <AuthProvider>
@@ -86,11 +79,6 @@ const AddStock: FC = () => {
           <EstablishmentInput {...suframa} />
 
           <EstablishmentButtonAdd />
-          {showAlert === true ? (
-            <Alert type="success" onClose={handleCloseAlert}>
-              Dados salvos!
-            </Alert>
-          ) : null}
         </EstablishmentProvider>
       </AuthProvider>
     </>
