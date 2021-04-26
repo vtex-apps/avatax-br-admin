@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { EstablishmentButtonSave } from '../Button/EstablishmentButtonSave'
+import EstablishmentButtonSave from '../Button/EstablishmentButtonSave'
 import { DividerArea } from '../Divider/divider'
 import EstablishmentDropdown from '../Dropdown/EstablishmentDropdown'
 import AuthInputPassword from '../InputPassword/AuthInputPassword'

@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import { Alert } from 'vtex.styleguide'
 
-import { EstablishmentButtonAdd } from '../Button/EstablishmentButtonAdd'
+import EstablishmentButtonAdd from '../Button/EstablishmentButtonAdd'
 import { DividerArea } from '../Divider/divider'
 import EstablishmentDropdown from '../Dropdown/EstablishmentDropdown'
 import AuthInputPassword from '../InputPassword/AuthInputPassword'
@@ -50,49 +50,49 @@ const AddStock: FC = () => {
         <AuthInputPassword {...clientId} />
         <AuthInputPassword {...clientSecret} />
         <AuthInput {...clientCompanyLocation} />
+
+        <EstablishmentProvider>
+          <DividerArea />
+
+          <h3 className="t-heading-3">Informações</h3>
+
+          <EstablishmentInput {...dockId} />
+          <EstablishmentInput {...dockName} />
+
+          <EstablishmentDropdown {...messageType} />
+          <EstablishmentDropdown {...activitySector} />
+          <EstablishmentDropdown {...icmsTaxPayer} />
+          <EstablishmentDropdown {...taxRegime} />
+          <EstablishmentDropdown {...entityType} />
+
+          <EstablishmentInput {...stateTaxId} />
+
+          <DividerArea />
+
+          <h3 className="t-heading-3">Localidade</h3>
+
+          <EstablishmentInput {...street} />
+          <EstablishmentInput {...neighborhood} />
+          <EstablishmentInput {...zipCode} />
+          <EstablishmentInput {...cityCode} />
+          <EstablishmentInput {...city} />
+          <EstablishmentInput {...state} />
+
+          <EstablishmentDropdown {...country} />
+          <EstablishmentInput {...streetNumber} />
+          <EstablishmentInput {...complement} />
+          <EstablishmentInput {...phone} />
+          <EstablishmentInput {...cnpj} />
+          <EstablishmentInput {...suframa} />
+
+          <EstablishmentButtonAdd />
+          {showAlert === true ? (
+            <Alert type="success" onClose={handleCloseAlert}>
+              Dados salvos!
+            </Alert>
+          ) : null}
+        </EstablishmentProvider>
       </AuthProvider>
-
-      <EstablishmentProvider>
-        <DividerArea />
-
-        <h3 className="t-heading-3">Informações</h3>
-
-        <EstablishmentInput {...dockId} />
-        <EstablishmentInput {...dockName} />
-
-        <EstablishmentDropdown {...messageType} />
-        <EstablishmentDropdown {...activitySector} />
-        <EstablishmentDropdown {...icmsTaxPayer} />
-        <EstablishmentDropdown {...taxRegime} />
-        <EstablishmentDropdown {...entityType} />
-
-        <EstablishmentInput {...stateTaxId} />
-
-        <DividerArea />
-
-        <h3 className="t-heading-3">Localidade</h3>
-
-        <EstablishmentInput {...street} />
-        <EstablishmentInput {...neighborhood} />
-        <EstablishmentInput {...zipCode} />
-        <EstablishmentInput {...cityCode} />
-        <EstablishmentInput {...city} />
-        <EstablishmentInput {...state} />
-
-        <EstablishmentDropdown {...country} />
-        <EstablishmentInput {...streetNumber} />
-        <EstablishmentInput {...complement} />
-        <EstablishmentInput {...phone} />
-        <EstablishmentInput {...cnpj} />
-        <EstablishmentInput {...suframa} />
-
-        <EstablishmentButtonAdd />
-        {showAlert === true ? (
-          <Alert type="success" onClose={handleCloseAlert}>
-            Dados salvos!
-          </Alert>
-        ) : null}
-      </EstablishmentProvider>
     </>
   )
 }

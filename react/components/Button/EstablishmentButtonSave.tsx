@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { FC, useContext } from 'react'
 import { Button } from 'vtex.styleguide'
 
-export const EstablishmentButtonSave = () => {
+import AuthContext from '../../context/AuthContext'
+import EstablishmentContext from '../../context/EstablishmentContext'
+
+const EstablishmentButtonSave: FC = () => {
+  const context = useContext(EstablishmentContext)
+  const contextAuth = useContext(AuthContext)
+
   return (
     <div className="mb5">
       <span className="mr4">
         <Button
           variation="primary"
           size="large"
-          // onClick={saveConfigurations}
+          onClick={() => context.saveConfigurations(contextAuth.auth.id)}
         >
           Salvar
         </Button>
@@ -16,3 +22,5 @@ export const EstablishmentButtonSave = () => {
     </div>
   )
 }
+
+export default EstablishmentButtonSave
