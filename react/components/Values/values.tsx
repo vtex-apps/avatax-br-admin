@@ -1,16 +1,3 @@
-export const appKey = {
-  name: 'appKey',
-  placeholder: 'Inserir AppKey',
-  label: 'VTEX AppKey',
-  className: 'mt8 mb5',
-}
-
-export const appToken = {
-  name: 'appToken',
-  placeholder: 'Inserir AppToken',
-  label: 'VTEX AppToken',
-}
-
 export const clientCompanyLocation = {
   name: 'clientCompanyLocation',
   placeholder: 'Inserir ID Avalara',
