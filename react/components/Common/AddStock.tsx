@@ -1,11 +1,13 @@
 import React, { FC } from 'react'
 
-import EstablishmentButtonSave from '../Button/EstablishmentButtonSave'
-import { DividerArea } from '../Divider/divider'
-import EstablishmentDropdown from '../Dropdown/EstablishmentDropdown'
-import AuthInputPassword from '../InputPassword/AuthInputPassword'
-import AuthInput from '../Inputs/AuthInput'
-import EstablishmentInput from '../Inputs/EstablishmentInput'
+import EstablishmentButtonAdd from '../Establishment/EstablishmentButtonAdd'
+import { DividerArea } from './divider'
+import EstablishmentDropdown from '../Establishment/EstablishmentDropdown'
+import AuthInputPassword from '../Auth/AuthInputPassword'
+import AuthInput from '../Auth/AuthInput'
+import EstablishmentInput from '../Establishment/EstablishmentInput'
+import AuthProvider from '../Auth/AuthProvider'
+import EstablishmentProvider from '../Establishment/EstablishmentProvider'
 import {
   activitySector,
   city,
@@ -30,27 +32,30 @@ import {
   suframa,
   taxRegime,
   zipCode,
-} from '../Values/values'
+} from './values'
 
-const EditArea: FC = () => {
+const AddStock: FC = () => {
   return (
     <>
-      <div className="flex flex-column flex-row-ns">
-        <div className="w-100">
-          <AuthInputPassword {...clientId} />
-          <AuthInputPassword {...clientSecret} />
-          <AuthInput {...clientCompanyLocation} />
+      <AuthProvider>
+        <DividerArea />
 
+        <AuthInputPassword {...clientId} />
+        <AuthInputPassword {...clientSecret} />
+        <AuthInput {...clientCompanyLocation} />
+
+        <EstablishmentProvider>
           <DividerArea />
+
           <h3 className="t-heading-3">Informações</h3>
 
           <EstablishmentInput {...dockId} />
           <EstablishmentInput {...dockName} />
+
           <EstablishmentDropdown {...messageType} />
           <EstablishmentDropdown {...activitySector} />
           <EstablishmentDropdown {...icmsTaxPayer} />
           <EstablishmentDropdown {...taxRegime} />
-
           <EstablishmentDropdown {...entityType} />
 
           <EstablishmentInput {...stateTaxId} />
@@ -60,12 +65,12 @@ const EditArea: FC = () => {
           <h3 className="t-heading-3">Localidade</h3>
 
           <EstablishmentInput {...street} />
-
           <EstablishmentInput {...neighborhood} />
           <EstablishmentInput {...zipCode} />
           <EstablishmentInput {...cityCode} />
           <EstablishmentInput {...city} />
           <EstablishmentInput {...state} />
+
           <EstablishmentDropdown {...country} />
           <EstablishmentInput {...streetNumber} />
           <EstablishmentInput {...complement} />
@@ -73,11 +78,11 @@ const EditArea: FC = () => {
           <EstablishmentInput {...cnpj} />
           <EstablishmentInput {...suframa} />
 
-          <EstablishmentButtonSave />
-        </div>
-      </div>
+          <EstablishmentButtonAdd />
+        </EstablishmentProvider>
+      </AuthProvider>
     </>
   )
 }
 
-export default EditArea
+export default AddStock

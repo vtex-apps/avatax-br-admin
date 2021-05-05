@@ -1,15 +1,13 @@
 import React, { FC, useState } from 'react'
 import { Layout, PageBlock, Tabs, Tab } from 'vtex.styleguide'
 
-import AddStock from './components/Stock/AddStock'
-import CurrentStock from './components/Stock/CurrentStock'
-import EditArea from './components/EditArea/editArea'
-import ModalArea from './components/Modal/modal'
-import EstablishmentProvider from './components/Provider/EstablishmentProvider'
-import AuthProvider from './components/Provider/AuthProvider'
-import ToggleArea from './components/Toggle/toggle'
-
-// import axios, { AxiosResponse } from 'axios'
+import AddStock from './components/Common/AddStock'
+import CurrentStock from './components/Common/CurrentStock'
+import EditArea from './components/Common/editArea'
+import ModalArea from './components/Common/modal'
+import EstablishmentProvider from './components/Establishment/EstablishmentProvider'
+import AuthProvider from './components/Auth/AuthProvider'
+import ToggleArea from './components/Common/toggle'
 
 const AvataxAdmin: FC = () => {
   const [tab, setTab] = useState({

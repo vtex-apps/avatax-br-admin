@@ -49,8 +49,8 @@ const EstablishmentProvider: FC = (props) => {
   const saveConfigurations = async (documentId: string) => {
     const valueReturn = await saveConfiguration({
       variables: {
-        esta: { ...establishment, ...contextAuth.auth },
         documentId,
+        esta: { ...establishment, ...contextAuth.auth },
       },
     })
 
