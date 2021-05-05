@@ -7,6 +7,7 @@ import EditArea from './components/EditArea/editArea'
 import ModalArea from './components/Modal/modal'
 import EstablishmentProvider from './components/Provider/EstablishmentProvider'
 import AuthProvider from './components/Provider/AuthProvider'
+import ToggleArea from './components/Toggle/toggle'
 
 // import axios, { AxiosResponse } from 'axios'
 
@@ -45,6 +46,13 @@ const AvataxAdmin: FC = () => {
                   </ModalArea>
                 </EstablishmentProvider>
               </AuthProvider>
+            </Tab>
+            <Tab
+              label="Ativar/Desativar taxação"
+              active={tab.currentTab === 3}
+              onClick={() => setTab({ currentTab: 3 })}
+            >
+              <ToggleArea />
             </Tab>
           </Tabs>
         </PageBlock>

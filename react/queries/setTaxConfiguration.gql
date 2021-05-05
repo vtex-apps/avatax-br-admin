@@ -1,0 +1,13 @@
+mutation setTaxConfigurationMutation($operation: String){
+  setTaxConfiguration(operation: $operation){
+     minimumQuantityAccumulatedForItems
+    decimalDigitsPrecision
+    minimumValueAccumulated
+    allowMultipleDeliveries
+    allowManualPrice
+    maxIntOfWhiteLabelSellers
+    maskFirstPurchaseData
+    recaptchaValidation
+  }
+}
+

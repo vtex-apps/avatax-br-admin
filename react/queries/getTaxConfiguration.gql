@@ -1,0 +1,8 @@
+query getTaxConfiguration {
+  getTaxConfiguration{
+      allowExecutionAfterErrors
+    authorizationHeader
+    integratedAuthentication
+    url
+  }
+}
