@@ -9,7 +9,7 @@ interface EstablishmentContextType {
   establishmentList?: Establishment[]
   update: (establishment: Establishment) => void
   deleteEstablishments: (documentId: string) => void
-  saveConfigurations: (documentId: string) => void
+  saveConfigurations: () => void
   showAlert: boolean
   setShowAlert: (showAlert: boolean) => void
   handleCloseAlert: () => void

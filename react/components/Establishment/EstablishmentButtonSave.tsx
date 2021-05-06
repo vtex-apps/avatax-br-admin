@@ -1,12 +1,10 @@
 import React, { FC, useContext } from 'react'
 import { Button } from 'vtex.styleguide'
 
-import AuthContext from '../../context/AuthContext'
 import EstablishmentContext from '../../context/EstablishmentContext'
 
 const EstablishmentButtonSave: FC = () => {
   const context = useContext(EstablishmentContext)
-  const contextAuth = useContext(AuthContext)
 
   return (
     <div className="mb5">
@@ -14,7 +12,7 @@ const EstablishmentButtonSave: FC = () => {
         <Button
           variation="primary"
           size="large"
-          onClick={() => context.saveConfigurations(contextAuth.auth.id)}
+          onClick={() => context.saveConfigurations()}
         >
           Salvar
         </Button>

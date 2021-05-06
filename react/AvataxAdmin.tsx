@@ -6,7 +6,6 @@ import CurrentStock from './components/Common/CurrentStock'
 import EditArea from './components/Common/editArea'
 import ModalArea from './components/Common/modal'
 import EstablishmentProvider from './components/Establishment/EstablishmentProvider'
-import AuthProvider from './components/Auth/AuthProvider'
 import ToggleArea from './components/Common/toggle'
 
 const AvataxAdmin: FC = () => {
@@ -36,14 +35,12 @@ const AvataxAdmin: FC = () => {
               active={tab.currentTab === 2}
               onClick={() => setTab({ currentTab: 2 })}
             >
-              <AuthProvider>
-                <EstablishmentProvider>
-                  <CurrentStock />
-                  <ModalArea>
-                    <EditArea />
-                  </ModalArea>
-                </EstablishmentProvider>
-              </AuthProvider>
+              <EstablishmentProvider>
+                <CurrentStock />
+                <ModalArea>
+                  <EditArea />
+                </ModalArea>
+              </EstablishmentProvider>
             </Tab>
             <Tab
               label="Ativar/Desativar taxação"

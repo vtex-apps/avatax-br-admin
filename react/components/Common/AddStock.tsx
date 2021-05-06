@@ -3,18 +3,12 @@ import React, { FC } from 'react'
 import EstablishmentButtonAdd from '../Establishment/EstablishmentButtonAdd'
 import { DividerArea } from './divider'
 import EstablishmentDropdown from '../Establishment/EstablishmentDropdown'
-import AuthInputPassword from '../Auth/AuthInputPassword'
-import AuthInput from '../Auth/AuthInput'
 import EstablishmentInput from '../Establishment/EstablishmentInput'
-import AuthProvider from '../Auth/AuthProvider'
 import EstablishmentProvider from '../Establishment/EstablishmentProvider'
 import {
   activitySector,
   city,
   cityCode,
-  clientCompanyLocation,
-  clientId,
-  clientSecret,
   cnpj,
   complement,
   country,
@@ -37,50 +31,42 @@ import {
 const AddStock: FC = () => {
   return (
     <>
-      <AuthProvider>
+      <DividerArea />
+
+      <EstablishmentProvider>
+        <h3 className="t-heading-3">Informações</h3>
+
+        <EstablishmentInput {...dockId} />
+        <EstablishmentInput {...dockName} />
+
+        <EstablishmentDropdown {...messageType} />
+        <EstablishmentDropdown {...activitySector} />
+        <EstablishmentDropdown {...icmsTaxPayer} />
+        <EstablishmentDropdown {...taxRegime} />
+        <EstablishmentDropdown {...entityType} />
+
+        <EstablishmentInput {...stateTaxId} />
+
         <DividerArea />
 
-        <AuthInputPassword {...clientId} />
-        <AuthInputPassword {...clientSecret} />
-        <AuthInput {...clientCompanyLocation} />
+        <h3 className="t-heading-3">Localidade</h3>
 
-        <EstablishmentProvider>
-          <DividerArea />
+        <EstablishmentInput {...street} />
+        <EstablishmentInput {...neighborhood} />
+        <EstablishmentInput {...zipCode} />
+        <EstablishmentInput {...cityCode} />
+        <EstablishmentInput {...city} />
+        <EstablishmentInput {...state} />
 
-          <h3 className="t-heading-3">Informações</h3>
+        <EstablishmentDropdown {...country} />
+        <EstablishmentInput {...streetNumber} />
+        <EstablishmentInput {...complement} />
+        <EstablishmentInput {...phone} />
+        <EstablishmentInput {...cnpj} />
+        <EstablishmentInput {...suframa} />
 
-          <EstablishmentInput {...dockId} />
-          <EstablishmentInput {...dockName} />
-
-          <EstablishmentDropdown {...messageType} />
-          <EstablishmentDropdown {...activitySector} />
-          <EstablishmentDropdown {...icmsTaxPayer} />
-          <EstablishmentDropdown {...taxRegime} />
-          <EstablishmentDropdown {...entityType} />
-
-          <EstablishmentInput {...stateTaxId} />
-
-          <DividerArea />
-
-          <h3 className="t-heading-3">Localidade</h3>
-
-          <EstablishmentInput {...street} />
-          <EstablishmentInput {...neighborhood} />
-          <EstablishmentInput {...zipCode} />
-          <EstablishmentInput {...cityCode} />
-          <EstablishmentInput {...city} />
-          <EstablishmentInput {...state} />
-
-          <EstablishmentDropdown {...country} />
-          <EstablishmentInput {...streetNumber} />
-          <EstablishmentInput {...complement} />
-          <EstablishmentInput {...phone} />
-          <EstablishmentInput {...cnpj} />
-          <EstablishmentInput {...suframa} />
-
-          <EstablishmentButtonAdd />
-        </EstablishmentProvider>
-      </AuthProvider>
+        <EstablishmentButtonAdd />
+      </EstablishmentProvider>
     </>
   )
 }

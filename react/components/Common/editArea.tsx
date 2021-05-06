@@ -3,16 +3,11 @@ import React, { FC } from 'react'
 import EstablishmentButtonSave from '../Establishment/EstablishmentButtonSave'
 import { DividerArea } from './divider'
 import EstablishmentDropdown from '../Establishment/EstablishmentDropdown'
-import AuthInputPassword from '../Auth/AuthInputPassword'
-import AuthInput from '../Auth/AuthInput'
 import EstablishmentInput from '../Establishment/EstablishmentInput'
 import {
   activitySector,
   city,
   cityCode,
-  clientCompanyLocation,
-  clientId,
-  clientSecret,
   cnpj,
   complement,
   country,
@@ -37,11 +32,6 @@ const EditArea: FC = () => {
     <>
       <div className="flex flex-column flex-row-ns">
         <div className="w-100">
-          <AuthInputPassword {...clientId} />
-          <AuthInputPassword {...clientSecret} />
-          <AuthInput {...clientCompanyLocation} />
-
-          <DividerArea />
           <h3 className="t-heading-3">Informações</h3>
 
           <EstablishmentInput {...dockId} />

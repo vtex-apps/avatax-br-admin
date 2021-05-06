@@ -1,11 +1,10 @@
-import React, { FC, useContext, useState } from 'react'
+import React, { FC, useState } from 'react'
 import { useMutation, useQuery } from 'react-apollo'
 
 import EstablishmentContext from '../../context/EstablishmentContext'
 import getEstablishmentQuery from '../../queries/getEstablishment.gql'
 import deleteEstablishmentMutation from '../../queries/delete.gql'
 import saveConfigurationMutation from '../../queries/saveConfiguration.gql'
-import AuthContext from '../../context/AuthContext'
 
 const EstablishmentProvider: FC = (props) => {
   const [establishment, setEstablishments] = useState<Establishment>({})
@@ -30,8 +29,6 @@ const EstablishmentProvider: FC = (props) => {
     refetch,
   } = useQuery<GetEstablishment>(getEstablishmentQuery)
 
-  const contextAuth = useContext(AuthContext)
-
   const [deleteEstablishment] = useMutation(deleteEstablishmentMutation)
 
   const update = (establishmentUpdate: Establishment) => {
@@ -46,11 +43,10 @@ const EstablishmentProvider: FC = (props) => {
 
   const [saveConfiguration] = useMutation(saveConfigurationMutation)
 
-  const saveConfigurations = async (documentId: string) => {
+  const saveConfigurations = async () => {
     const valueReturn = await saveConfiguration({
       variables: {
-        documentId,
-        esta: { ...establishment, ...contextAuth.auth },
+        esta: { ...establishment },
       },
     })
 
