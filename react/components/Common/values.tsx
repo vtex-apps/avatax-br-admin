@@ -6,15 +6,15 @@ export const clientCompanyLocation = {
 
 export const dockId = {
   name: 'dockId',
-  placeholder: 'Inserir ID do estoque',
-  label: 'Estoque ID',
+  placeholder: 'Inserir ID da doca',
+  label: 'Doca ID',
   className: 'mt8 mb5',
 }
 
 export const dockName = {
   name: 'dockName',
-  placeholder: 'Inserir nome do estoque',
-  label: 'Nome do Estoque',
+  placeholder: 'Inserir nome da doca',
+  label: 'Nome da doca',
 }
 
 export const clientId = {
