@@ -5,6 +5,7 @@ import EstablishmentContext from '../../context/EstablishmentContext'
 import getEstablishmentQuery from '../../queries/getEstablishment.gql'
 import deleteEstablishmentMutation from '../../queries/delete.gql'
 import saveConfigurationMutation from '../../queries/saveConfiguration.gql'
+import getAddress from '../../queries/getAddress.gql'
 
 const EstablishmentProvider: FC = (props) => {
   const [establishment, setEstablishments] = useState<Establishment>({})
@@ -21,6 +22,34 @@ const EstablishmentProvider: FC = (props) => {
       ...establishment,
       ...object,
     })
+
+    if (object.zipCode && !object.city) {
+      getInfo(object)
+    }
+  }
+
+  const [gettingAddress] = useMutation(getAddress)
+
+  async function getInfo(object: Establishment) {
+    if (object.zipCode) {
+      if (
+        (object.zipCode.length === 8 && !object.zipCode.includes('-')) ||
+        (object.zipCode.length === 9 && object.zipCode.includes('-'))
+      ) {
+        const { zipCode } = object
+        const valueReturn = await gettingAddress({ variables: { zipCode } })
+
+        setEstablishment({
+          city: valueReturn.data.getAddress.city,
+          state: valueReturn.data.getAddress.state,
+          street: valueReturn.data.getAddress.street,
+          neighborhood: valueReturn.data.neighborhood,
+          streetNumber: valueReturn.data.number,
+          zipCode: object.zipCode,
+          complement: valueReturn.data.complement,
+        })
+      }
+    }
   }
 
   const {
