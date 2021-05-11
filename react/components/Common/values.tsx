@@ -307,8 +307,8 @@ export const zipCode = {
 
 export const cityCode = {
   name: 'cityCode',
-  placeholder: 'Inserir código cidade',
-  label: 'Código cidade',
+  placeholder: 'Inserir código IBGE da cidade',
+  label: 'Código IBGE da cidade',
 }
 
 export const city = {
