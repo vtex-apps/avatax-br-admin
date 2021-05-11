@@ -10,5 +10,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Completar o endereço a partir do CEP
 
+
 ### Added
 - Initial release.
