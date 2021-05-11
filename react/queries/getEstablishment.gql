@@ -1,5 +1,5 @@
 query getEstablishment{
- establishments {
+ establishments  @context(provider: "vtex.avatax-br-service@0.x") {
     id
     activitySector
     icmsTaxPayer

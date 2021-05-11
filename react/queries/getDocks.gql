@@ -1,5 +1,5 @@
 query getDocks{
-  getDocks{
+  getDocks @context(provider: "vtex.avatax-br-service@0.x"){
     name
     id
   }
