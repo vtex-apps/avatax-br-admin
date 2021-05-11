@@ -5,6 +5,8 @@ import EstablishmentContext from '../../context/EstablishmentContext'
 import getEstablishmentQuery from '../../queries/getEstablishment.gql'
 import deleteEstablishmentMutation from '../../queries/delete.gql'
 import saveConfigurationMutation from '../../queries/saveConfiguration.gql'
+import getDocks from '../../queries/getDocks.gql'
+import { dockName } from '../Common/values'
 import getAddress from '../../queries/getAddress.gql'
 
 const EstablishmentProvider: FC = (props) => {
@@ -17,15 +19,37 @@ const EstablishmentProvider: FC = (props) => {
     setShowAlert(false)
   }
 
+  const { data: docks } = useQuery<GetDocks>(getDocks)
+
+  const valueDocks = docks?.getDocks
+
+  if (dockName.options.length === 0) {
+    valueDocks?.forEach((element) => {
+      dockName.options.push({ value: element.name, label: element.name })
+    })
+  }
+
   const setEstablishment = (object: Establishment) => {
     setEstablishments({
       ...establishment,
       ...object,
     })
 
+    if (object.dockName && !object.dockId) {
+      getDockId(object)
+    }
+
     if (object.zipCode && !object.city) {
       getInfo(object)
     }
+  }
+
+  async function getDockId(object: Establishment) {
+    valueDocks?.forEach((element) => {
+      if (element.name === object.dockName) {
+        setEstablishment({ dockName: object.dockName, dockId: element.id })
+      }
+    })
   }
 
   const [gettingAddress] = useMutation(getAddress)
@@ -99,6 +123,7 @@ const EstablishmentProvider: FC = (props) => {
         showAlert,
         setShowAlert,
         handleCloseAlert,
+        docks: docks?.getDocks,
       }}
     >
       {props.children}

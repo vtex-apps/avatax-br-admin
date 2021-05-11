@@ -6,15 +6,20 @@ export const clientCompanyLocation = {
 
 export const dockId = {
   name: 'dockId',
-  placeholder: 'Inserir ID do estoque',
-  label: 'Estoque ID',
-  className: 'mt8 mb5',
+  placeholder: 'Inserir ID da doca',
+  label: 'Doca ID',
 }
 
-export const dockName = {
+export const dockName: {
+  name: string
+  placeholder: string
+  label: string
+  options: Array<{ value: string; label: string }>
+} = {
   name: 'dockName',
-  placeholder: 'Inserir nome do estoque',
-  label: 'Nome do Estoque',
+  placeholder: 'Inserir nome da doca',
+  label: 'Nome da doca',
+  options: [],
 }
 
 export const clientId = {
@@ -302,8 +307,8 @@ export const zipCode = {
 
 export const cityCode = {
   name: 'cityCode',
-  placeholder: 'Inserir código cidade',
-  label: 'Código cidade',
+  placeholder: 'Inserir código IBGE da cidade',
+  label: 'Código IBGE da cidade',
 }
 
 export const city = {

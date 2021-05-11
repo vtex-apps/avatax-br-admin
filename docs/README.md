@@ -1,4 +1,4 @@
-=� Use this project, [contribute](https://github.com/{OrganizationName}/{AppName}) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
+📢 Use this project, [contribute](https://github.com/{OrganizationName}/{AppName}) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
 
 # APP NAME
 
@@ -89,7 +89,7 @@ If there are none, add the following sentence instead:
 
 <!-- DOCS-IGNORE:start -->
 
-## Contributors (
+## Contributors ✨
 
 Thanks goes to these wonderful people:
 

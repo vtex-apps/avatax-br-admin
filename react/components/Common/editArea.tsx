@@ -34,8 +34,9 @@ const EditArea: FC = () => {
         <div className="w-100">
           <h3 className="t-heading-3">Informações</h3>
 
+          <EstablishmentDropdown {...dockName} />
           <EstablishmentInput {...dockId} />
-          <EstablishmentInput {...dockName} />
+
           <EstablishmentDropdown {...messageType} />
           <EstablishmentDropdown {...activitySector} />
           <EstablishmentDropdown {...icmsTaxPayer} />

@@ -7,15 +7,9 @@ interface Props {
   name: string
   placeholder: string
   label: string
-  className?: string
 }
 
-function EstablishmentInput({
-  name,
-  placeholder,
-  label,
-  className = 'mb5',
-}: Props) {
+function EstablishmentInput({ name, placeholder, label }: Props) {
   const provider = useContext(EstablishmentContext)
 
   const updateValue = (event: { target: { value?: string } }) => {
@@ -23,7 +17,7 @@ function EstablishmentInput({
   }
 
   return (
-    <div className={className}>
+    <div className="mb3">
       <Input
         name={name}
         placeholder={placeholder}
