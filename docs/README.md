@@ -1,4 +1,4 @@
-📢 Use this project, [contribute](https://github.com/{OrganizationName}/{AppName}) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
+=� Use this project, [contribute](https://github.com/{OrganizationName}/{AppName}) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
 
 # APP NAME
 
@@ -89,7 +89,7 @@ If there are none, add the following sentence instead:
 
 <!-- DOCS-IGNORE:start -->
 
-## Contributors ✨
+## Contributors (
 
 Thanks goes to these wonderful people:
 
@@ -118,3 +118,5 @@ Check out some documentation models that are already live:
 
  - [Feature/components](https://github.com/vtex-apps/avatax-br-admin/pull/1)
  - [Feature/cep](https://github.com/vtex-apps/avatax-br-admin/pull/2)
+
+ - [Feature/docas](https://github.com/vtex-apps/avatax-br-admin/pull/3)
