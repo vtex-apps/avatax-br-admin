@@ -1,5 +1,5 @@
 query getTaxConfiguration {
-  getTaxConfiguration{
+  getTaxConfiguration @context(provider: "vtex.avatax-br-service@0.x"){
       allowExecutionAfterErrors
     authorizationHeader
     integratedAuthentication
