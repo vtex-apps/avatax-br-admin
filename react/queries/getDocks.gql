@@ -1,0 +1,6 @@
+query getDocks{
+  getDocks{
+    name
+    id
+  }
+}

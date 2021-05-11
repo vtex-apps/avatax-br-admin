@@ -8,13 +8,18 @@ export const dockId = {
   name: 'dockId',
   placeholder: 'Inserir ID da doca',
   label: 'Doca ID',
-  className: 'mt8 mb5',
 }
 
-export const dockName = {
+export const dockName: {
+  name: string
+  placeholder: string
+  label: string
+  options: Array<{ value: string; label: string }>
+} = {
   name: 'dockName',
   placeholder: 'Inserir nome da doca',
   label: 'Nome da doca',
+  options: [],
 }
 
 export const clientId = {

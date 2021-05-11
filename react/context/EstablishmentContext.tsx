@@ -13,6 +13,7 @@ interface EstablishmentContextType {
   showAlert: boolean
   setShowAlert: (showAlert: boolean) => void
   handleCloseAlert: () => void
+  docks: Docks[] | undefined
 }
 const EstablishmentContext = React.createContext<EstablishmentContextType>({
   establishment: {},
@@ -27,6 +28,7 @@ const EstablishmentContext = React.createContext<EstablishmentContextType>({
   showAlert: false,
   setShowAlert: () => {},
   handleCloseAlert: () => {},
+  docks: [{ name: '', id: '' }],
 })
 
 export default EstablishmentContext
