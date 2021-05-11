@@ -117,3 +117,4 @@ Check out some documentation models that are already live:
 **Upcoming documentation:**
 
  - [Feature/components](https://github.com/vtex-apps/avatax-br-admin/pull/1)
+ - [Feature/cep](https://github.com/vtex-apps/avatax-br-admin/pull/2)
