@@ -1,3 +1,3 @@
 mutation saveConfigurationMutation($esta: EstablishmentInput){
-  saveConfiguration(data: $esta)
+  saveConfiguration(data: $esta) @context(provider: "vtex.avatax-br-service@0.x")
 }

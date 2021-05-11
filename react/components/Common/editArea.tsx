@@ -49,10 +49,11 @@ const EditArea: FC = () => {
 
           <h3 className="t-heading-3">Localidade</h3>
 
+          <EstablishmentInput {...zipCode} />
+
           <EstablishmentInput {...street} />
 
           <EstablishmentInput {...neighborhood} />
-          <EstablishmentInput {...zipCode} />
           <EstablishmentInput {...cityCode} />
           <EstablishmentInput {...city} />
           <EstablishmentInput {...state} />

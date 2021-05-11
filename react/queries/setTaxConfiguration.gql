@@ -1,5 +1,5 @@
 mutation setTaxConfigurationMutation($operation: String){
-  setTaxConfiguration(operation: $operation){
+  setTaxConfiguration(operation: $operation) @context(provider: "vtex.avatax-br-service@0.x"){
      minimumQuantityAccumulatedForItems
     decimalDigitsPrecision
     minimumValueAccumulated
