@@ -14,5 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Criar área de "Ativar/Desativar Taxação Avalara
 - Remoção do Auth e criação do aplicativo no settings
 
+### Changed
+- Completar o endereço a partir do CEP
+
+
 ### Added
 - Initial release.
