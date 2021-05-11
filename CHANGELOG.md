@@ -12,7 +12,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adicionado o DropDown no nome da Doca com os valores das Docas existentes
 - Completado o id da Doca após escolher o nome da Doca
 - Arrumado a descrição do cityCode
-
-Remoção do Auth e criação do aplicativo no settings
+- Remoção do Auth e criação do aplicativo no settings
 ### Added
 - Initial release.
