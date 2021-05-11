@@ -112,3 +112,9 @@ Check out some documentation models that are already live:
 - [Condition Layout](https://vtex.io/docs/components/all/vtex.condition-layout@1.1.6/)
 - [Add To Cart Button](https://vtex.io/docs/components/content-blocks/vtex.add-to-cart-button@0.9.0/)
 - [Store Form](https://vtex.io/docs/components/all/vtex.store-form@0.3.4/)
+
+
+**Upcoming documentation:**
+
+ - [Feature/components](https://github.com/vtex-apps/avatax-br-admin/pull/1)
+ - [Feature/cep](https://github.com/vtex-apps/avatax-br-admin/pull/2)

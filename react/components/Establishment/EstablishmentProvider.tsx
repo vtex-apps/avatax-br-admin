@@ -7,6 +7,7 @@ import deleteEstablishmentMutation from '../../queries/delete.gql'
 import saveConfigurationMutation from '../../queries/saveConfiguration.gql'
 import getDocks from '../../queries/getDocks.gql'
 import { dockName } from '../Common/values'
+import getAddress from '../../queries/getAddress.gql'
 
 const EstablishmentProvider: FC = (props) => {
   const [establishment, setEstablishments] = useState<Establishment>({})
@@ -37,6 +38,10 @@ const EstablishmentProvider: FC = (props) => {
     if (object.dockName && !object.dockId) {
       getDockId(object)
     }
+
+    if (object.zipCode && !object.city) {
+      getInfo(object)
+    }
   }
 
   async function getDockId(object: Establishment) {
@@ -45,6 +50,30 @@ const EstablishmentProvider: FC = (props) => {
         setEstablishment({ dockName: object.dockName, dockId: element.id })
       }
     })
+  }
+
+  const [gettingAddress] = useMutation(getAddress)
+
+  async function getInfo(object: Establishment) {
+    if (object.zipCode) {
+      if (
+        (object.zipCode.length === 8 && !object.zipCode.includes('-')) ||
+        (object.zipCode.length === 9 && object.zipCode.includes('-'))
+      ) {
+        const { zipCode } = object
+        const valueReturn = await gettingAddress({ variables: { zipCode } })
+
+        setEstablishment({
+          city: valueReturn.data.getAddress.city,
+          state: valueReturn.data.getAddress.state,
+          street: valueReturn.data.getAddress.street,
+          neighborhood: valueReturn.data.neighborhood,
+          streetNumber: valueReturn.data.number,
+          zipCode: object.zipCode,
+          complement: valueReturn.data.complement,
+        })
+      }
+    }
   }
 
   const {

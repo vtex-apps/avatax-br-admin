@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Completado o id da Doca após escolher o nome da Doca
 - Arrumado a descrição do cityCode
 - Remoção do Auth e criação do aplicativo no settings
+- Completar o endereço a partir do CEP
+
 
 ### Added
 - Initial release.
