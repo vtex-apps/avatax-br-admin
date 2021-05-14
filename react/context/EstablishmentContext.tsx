@@ -14,6 +14,9 @@ interface EstablishmentContextType {
   setShowAlert: (showAlert: boolean) => void
   handleCloseAlert: () => void
   docks: Docks[] | undefined
+  validation: boolean
+  zip: boolean
+  validationFuntion: (object: Establishment) => Promise<string>
 }
 const EstablishmentContext = React.createContext<EstablishmentContextType>({
   establishment: {},
@@ -29,6 +32,9 @@ const EstablishmentContext = React.createContext<EstablishmentContextType>({
   setShowAlert: () => {},
   handleCloseAlert: () => {},
   docks: [{ name: '', id: '' }],
+  validation: false,
+  zip: false,
+  validationFuntion: async () => '',
 })
 
 export default EstablishmentContext
