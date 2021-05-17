@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useMutation, useQuery } from 'react-apollo'
 import { Toggle } from 'vtex.styleguide'
 
@@ -8,7 +8,6 @@ import getTaxConfiguration from '../../queries/getTaxConfiguration.gql'
 
 const ToggleArea: FC = () => {
   const [initialState, setState] = useState(Boolean)
-  const [initial, setStateInital] = useState(true)
 
   const { data, refetch, loading } = useQuery<GetTaxConfiguration>(
     getTaxConfiguration
@@ -18,34 +17,26 @@ const ToggleArea: FC = () => {
     setTaxConfigurationMutation
   )
 
-  if (loading) return <div className="dib">Carregando...</div>
-  get()
-
-  async function get() {
-    if (initial) setStateInital(false)
-    else await refetch()
+  useEffect(() => {
     if (!data?.getTaxConfiguration) {
       setState(false)
+    } else {
+      const contains = data.getTaxConfiguration.url.includes(
+        window.location.origin
+      )
 
-      return false
+      setState(contains)
     }
+  }, [data])
 
-    const contains = data.getTaxConfiguration.url.includes(
-      window.location.origin
-    )
-
-    setState(contains)
-
-    return contains
-  }
+  if (loading) return <div className="dib">Carregando...</div>
 
   const activateDeactivate = async () => {
     let operations = 'activate'
 
     if (initialState) operations = 'deactivate'
     await taxConfiguration({ variables: { operation: operations } })
-
-    get()
+    await refetch()
   }
 
   return (
