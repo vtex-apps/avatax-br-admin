@@ -138,6 +138,9 @@ const EstablishmentProvider: FC = (props) => {
         setZip(true)
       }
     }
+
+    setValidation(true)
+    setValidation(false)
   }
 
   const {
