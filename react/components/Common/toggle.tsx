@@ -8,17 +8,22 @@ import getTaxConfiguration from '../../queries/getTaxConfiguration.gql'
 
 const ToggleArea: FC = () => {
   const [initialState, setState] = useState(Boolean)
+  const [initial, setStateInital] = useState(true)
 
-  const { data, refetch } = useQuery<GetTaxConfiguration>(getTaxConfiguration)
+  const { data, refetch, loading } = useQuery<GetTaxConfiguration>(
+    getTaxConfiguration
+  )
 
   const [taxConfiguration] = useMutation<SetTaxConfiguration>(
     setTaxConfigurationMutation
   )
 
+  if (loading) return <div className="dib">Carregando...</div>
   get()
 
   async function get() {
-    await refetch()
+    if (initial) setStateInital(false)
+    else await refetch()
     if (!data?.getTaxConfiguration) {
       setState(false)
 
@@ -39,6 +44,7 @@ const ToggleArea: FC = () => {
 
     if (initialState) operations = 'deactivate'
     await taxConfiguration({ variables: { operation: operations } })
+
     get()
   }
 
