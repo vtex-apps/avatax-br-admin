@@ -23,5 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Arrumado a descrição do cityCode
 - Remoção do Auth e criação do aplicativo no settings 
 
+### Changed
+- Transformar o avatax-br-admin em avatax-br
+
 ### Added
 - Initial release.
