@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "vtex.styleguide": "9.x",
-    "vtex.avatax-br-service": "0.x"
+    "vtex.avatax-br-service": "0.x",
+    "vtex.avatax-br-tax-protocol": "0.x"
   },
   "policies": [],
   "settingsSchema": {
