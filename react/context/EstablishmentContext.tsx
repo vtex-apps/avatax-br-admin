@@ -9,7 +9,7 @@ interface EstablishmentContextType {
   establishmentList?: Establishment[]
   update: (establishment: Establishment) => void
   deleteEstablishments: (documentId: string) => void
-  saveConfigurations: () => void
+  saveConfigurations: () => Promise<boolean>
   showAlert: boolean
   setShowAlert: (showAlert: boolean) => void
   handleCloseAlert: () => void
@@ -17,6 +17,8 @@ interface EstablishmentContextType {
   validationValues: EstablishmentValidation
   zip: boolean
   validationFuntion: (object: Establishment) => Promise<string>
+  showAlertUpdate: boolean
+  setShowAlertUpdate: (showAlert: boolean) => void
 }
 const EstablishmentContext = React.createContext<EstablishmentContextType>({
   establishment: {},
@@ -27,7 +29,7 @@ const EstablishmentContext = React.createContext<EstablishmentContextType>({
   establishmentList: [],
   update: () => {},
   deleteEstablishments: () => {},
-  saveConfigurations: () => {},
+  saveConfigurations: async () => false,
   showAlert: false,
   setShowAlert: () => {},
   handleCloseAlert: () => {},
@@ -35,6 +37,8 @@ const EstablishmentContext = React.createContext<EstablishmentContextType>({
   validationValues: {},
   zip: false,
   validationFuntion: async () => '',
+  showAlertUpdate: false,
+  setShowAlertUpdate: () => {},
 })
 
 export default EstablishmentContext

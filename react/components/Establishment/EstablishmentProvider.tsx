@@ -16,6 +16,7 @@ const EstablishmentProvider: FC = (props) => {
   const [edit, setEdit] = useState<boolean>(false)
 
   const [showAlert, setShowAlert] = useState(false)
+  const [showAlertUpdate, setShowAlertUpdate] = useState(false)
   const [zip, setZip] = useState(false)
   const [validationValues, setValidationValues] = useState({
     activitySector: false,
@@ -45,7 +46,6 @@ const EstablishmentProvider: FC = (props) => {
     icmsTaxPayer: yup.string().required(),
     taxRegime: yup.string().required(),
     entityType: yup.string().required(),
-    stateTaxId: yup.string(),
     street: yup.string().required(),
     neighborhood: yup.string().required(),
     zipCode: yup
@@ -65,10 +65,11 @@ const EstablishmentProvider: FC = (props) => {
       .required()
       .matches(/^[0-9]+$/, 'Deve conter somente números')
       .length(14),
-    suframa: yup.string(),
     messageType: yup.string().required(),
     dockId: yup.string().required(),
     dockName: yup.string().required(),
+    suframa: yup.string().nullable(),
+    stateTaxId: yup.string().nullable(),
   })
 
   // Return 1 if its ok, 2 if is null and 3 if cep is smaller than 3 caracteres
@@ -232,10 +233,17 @@ const EstablishmentProvider: FC = (props) => {
         },
       })
 
-      if (valueReturn.data.saveConfiguration) setShowAlert(true)
       setEdit(false)
       refetch()
+
+      if (valueReturn.data.saveConfiguration) {
+        setShowAlert(true)
+
+        return true
+      }
     }
+
+    return false
   }
 
   return (
@@ -257,6 +265,8 @@ const EstablishmentProvider: FC = (props) => {
         validationValues,
         zip,
         validationFuntion,
+        showAlertUpdate,
+        setShowAlertUpdate,
       }}
     >
       {props.children}
