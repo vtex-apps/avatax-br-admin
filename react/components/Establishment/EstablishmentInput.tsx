@@ -35,7 +35,7 @@ function EstablishmentInput({
     setText(value)
   }
 
-  if (provider.validation) {
+  if (provider.validationValues[name]) {
     validation({ target: { value: provider.establishment[name] } })
   }
 

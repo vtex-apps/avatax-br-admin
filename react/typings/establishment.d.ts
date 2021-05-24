@@ -25,3 +25,27 @@ interface Establishment {
 interface GetEstablishment {
   establishments: Establishment[]
 }
+
+interface EstablishmentValidation {
+  activitySector?: boolean
+  icmsTaxPayer?: boolean
+  taxRegime?: boolean
+  entityType?: boolean
+  stateTaxId?: boolean
+  street?: boolean
+  neighborhood?: boolean
+  zipCode?: boolean
+  cityCode?: boolean
+  city?: boolean
+  state?: boolean
+  country?: boolean
+  streetNumber?: boolean
+  complement?: boolean
+  phone?: boolean
+  cnpj?: boolean
+  suframa?: boolean
+  messageType?: boolean
+  dockId?: boolean
+  dockName?: boolean
+  [index: string]: boolean
+}
