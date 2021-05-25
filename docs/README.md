@@ -121,3 +121,4 @@ Check out some documentation models that are already live:
 
  - [Feature/docas](https://github.com/vtex-apps/avatax-br-admin/pull/3)
  - [Feature/validation](https://github.com/vtex-apps/avatax-br-admin/pull/4)
+ - [new ordenation](https://github.com/vtex-apps/avatax-br-admin/pull/6)
