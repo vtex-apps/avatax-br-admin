@@ -24,4 +24,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remoção do Auth e criação do aplicativo no settings 
 
 ### Added
-- Initial release.
+- Initial release - 1.2.0.
