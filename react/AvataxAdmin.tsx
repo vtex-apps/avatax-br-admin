@@ -27,6 +27,7 @@ const AvataxAdmin: FC = () => {
               active={tab.currentTab === 1}
               onClick={() => setTab({ currentTab: 1 })}
             >
+              <p>campos obrigatórios* </p>
               <AddStock />
             </Tab>
 

@@ -1,9 +1,3 @@
-export const clientCompanyLocation = {
-  name: 'clientCompanyLocation',
-  placeholder: 'Inserir ID Avalara',
-  label: 'Avalara Company ID',
-}
-
 export const dockId = {
   name: 'dockId',
   placeholder: 'Inserir ID da doca',
@@ -20,18 +14,6 @@ export const dockName: {
   placeholder: 'Inserir nome da doca',
   label: 'Nome da doca',
   options: [],
-}
-
-export const clientId = {
-  name: 'clientId',
-  placeholder: 'Inserir Client ID',
-  label: 'Client ID',
-}
-
-export const clientSecret = {
-  name: 'clientSecret',
-  placeholder: 'Inserir Client Secret',
-  label: 'Client Secret',
 }
 
 export const messageType = {
@@ -303,12 +285,14 @@ export const zipCode = {
   name: 'zipCode',
   placeholder: 'Inserir CEP',
   label: 'CEP',
+  type: 'number',
 }
 
 export const cityCode = {
   name: 'cityCode',
   placeholder: 'Inserir código IBGE da cidade',
   label: 'Código IBGE da cidade',
+  type: 'number',
 }
 
 export const city = {
@@ -338,6 +322,7 @@ export const streetNumber = {
   name: 'streetNumber',
   placeholder: 'Inserir número',
   label: 'Número',
+  type: 'number',
 }
 
 export const complement = {
@@ -356,6 +341,7 @@ export const cnpj = {
   name: 'cnpj',
   placeholder: 'Inserir CNPJ',
   label: 'CNPJ',
+  type: 'number',
 }
 
 export const suframa = {
