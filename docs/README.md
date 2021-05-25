@@ -120,3 +120,4 @@ Check out some documentation models that are already live:
  - [Feature/cep](https://github.com/vtex-apps/avatax-br-admin/pull/2)
 
  - [Feature/docas](https://github.com/vtex-apps/avatax-br-admin/pull/3)
+ - [Feature/validation](https://github.com/vtex-apps/avatax-br-admin/pull/4)
