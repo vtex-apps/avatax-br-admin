@@ -34,7 +34,7 @@ const ToggleArea: FC = () => {
   return (
     <>
       <DividerArea />
-      Utilizar a taxação da Avalara
+      Status do conector da Avalara:
       <br />
       <br />
       <div className="dib">
