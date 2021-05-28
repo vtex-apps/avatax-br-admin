@@ -3,7 +3,7 @@
   "name": "avatax-br",
   "version": "0.0.0",
   "title": "Avatax Admin",
-  "description": "CHANGE_ME",
+  "description": "Admin part of avatax app",
   "builders": {
     "react": "3.x",
     "messages": "1.x",
