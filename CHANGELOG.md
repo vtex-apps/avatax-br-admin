@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
+- Correção de erro de toggle em workspace master
+
+### Fixed
 - Criar página do Avatax BR no Admin
 - Modularizar o código do front do Avatax BR
 - Conectar o Avatax-BR-Admin com o Avatax-BR-Service
