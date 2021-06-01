@@ -1,9 +1,9 @@
 {
   "vendor": "vtex",
-  "name": "avatax-br-admin",
+  "name": "avatax-br",
   "version": "0.0.0",
   "title": "Avatax Admin",
-  "description": "CHANGE_ME",
+  "description": "Admin part of avatax app",
   "builders": {
     "react": "3.x",
     "messages": "1.x",
@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "vtex.styleguide": "9.x",
-    "vtex.avatax-br-service": "0.x"
+    "vtex.avatax-br-service": "0.x",
+    "vtex.avatax-br-tax-protocol": "0.x"
   },
   "policies": [],
   "settingsSchema": {
