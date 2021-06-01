@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remoção do Auth e criação do aplicativo no settings 
 
 ### Changed
+- Transformar o avatax-br-admin em avatax-br
 - Validação dos campos
 1. Campos obrigatórios como request, 
 2. CEP com necessariamente 8 dígitos 
