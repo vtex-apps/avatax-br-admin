@@ -26,7 +26,7 @@ function EstablishmentDropdown({ name, label, options }: Props) {
     validation({ target: { value: event.target.value } })
   }
 
-  if (provider.validation) {
+  if (provider.validationValues[name]) {
     validation({ target: { value: provider.establishment[name] } })
   }
 

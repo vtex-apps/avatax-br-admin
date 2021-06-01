@@ -9,40 +9,32 @@ import getTaxConfiguration from '../../queries/getTaxConfiguration.gql'
 const ToggleArea: FC = () => {
   const [initialState, setState] = useState(Boolean)
 
-  const { data, refetch, loading } = useQuery<GetTaxConfiguration>(
-    getTaxConfiguration
-  )
+  const { data, loading } = useQuery<GetTaxConfiguration>(getTaxConfiguration)
 
   const [taxConfiguration] = useMutation<SetTaxConfiguration>(
     setTaxConfigurationMutation
   )
 
   useEffect(() => {
-    if (!data?.getTaxConfiguration) {
-      setState(false)
-    } else {
-      const contains = data.getTaxConfiguration.url.includes(
-        window.location.origin
-      )
-
-      setState(contains)
-    }
+    setState(
+      data?.getTaxConfiguration.url?.includes(window.location.origin) ?? false
+    )
   }, [data])
 
   if (loading) return <div className="dib">Carregando...</div>
 
   const activateDeactivate = async () => {
-    let operations = 'activate'
+    const operations = initialState ? 'deactivate' : 'activate'
 
-    if (initialState) operations = 'deactivate'
     await taxConfiguration({ variables: { operation: operations } })
-    await refetch()
+
+    setState(!initialState)
   }
 
   return (
     <>
       <DividerArea />
-      Utilizar a taxação da Avalara
+      Status do conector da Avalara:
       <br />
       <br />
       <div className="dib">

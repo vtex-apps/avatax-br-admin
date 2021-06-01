@@ -14,16 +14,38 @@ import { cnpjValidation } from './validCnpj'
 const EstablishmentProvider: FC = (props) => {
   const [establishment, setEstablishments] = useState<Establishment>({})
   const [edit, setEdit] = useState<boolean>(false)
-  const [validation, setValidation] = useState<boolean>(false)
+
   const [showAlert, setShowAlert] = useState(false)
+  const [showAlertUpdate, setShowAlertUpdate] = useState(false)
   const [zip, setZip] = useState(false)
+  const [validationValues, setValidationValues] = useState({
+    activitySector: false,
+    icmsTaxPayer: false,
+    taxRegime: false,
+    entityType: false,
+    stateTaxId: false,
+    street: false,
+    neighborhood: false,
+    zipCode: false,
+    cityCode: false,
+    city: false,
+    state: false,
+    country: false,
+    streetNumber: false,
+    complement: false,
+    phone: false,
+    cnpj: false,
+    suframa: false,
+    messageType: false,
+    dockId: false,
+    dockName: false,
+  })
 
   const schema = yup.object().shape({
     activitySector: yup.string().required(),
     icmsTaxPayer: yup.string().required(),
     taxRegime: yup.string().required(),
     entityType: yup.string().required(),
-    stateTaxId: yup.string(),
     street: yup.string().required(),
     neighborhood: yup.string().required(),
     zipCode: yup
@@ -43,10 +65,11 @@ const EstablishmentProvider: FC = (props) => {
       .required()
       .matches(/^[0-9]+$/, 'Deve conter somente números')
       .length(14),
-    suframa: yup.string(),
     messageType: yup.string().required(),
     dockId: yup.string().required(),
     dockName: yup.string().required(),
+    suframa: yup.string().nullable(),
+    stateTaxId: yup.string().nullable(),
   })
 
   // Return 1 if its ok, 2 if is null and 3 if cep is smaller than 3 caracteres
@@ -112,6 +135,10 @@ const EstablishmentProvider: FC = (props) => {
     valueDocks?.forEach((element) => {
       if (element.name === object.dockName) {
         setEstablishment({ dockName: object.dockName, dockId: element.id })
+        setValidationValues({
+          ...validationValues,
+          ...{ dockId: true, dockName: true },
+        })
       }
     })
   }
@@ -129,18 +156,16 @@ const EstablishmentProvider: FC = (props) => {
           city: valueReturn.data.getAddress.city,
           state: valueReturn.data.getAddress.state,
           street: valueReturn.data.getAddress.street,
-          neighborhood: valueReturn.data.neighborhood,
-          streetNumber: valueReturn.data.number,
           zipCode: object.zipCode,
-          complement: valueReturn.data.complement,
+        })
+        setValidationValues({
+          ...validationValues,
+          ...{ city: true, state: true, street: true, zipCode: true },
         })
       } else {
         setZip(true)
       }
     }
-
-    setValidation(true)
-    setValidation(false)
   }
 
   const {
@@ -161,7 +186,7 @@ const EstablishmentProvider: FC = (props) => {
     refetch()
   }
 
-  async function validationValues() {
+  async function validation() {
     const object = establishment
     const retorno = await schema.validate(object).catch(function (err) {
       err.name // => 'ValidationError'
@@ -176,10 +201,30 @@ const EstablishmentProvider: FC = (props) => {
   const [saveConfiguration] = useMutation(saveConfigurationMutation)
 
   const saveConfigurations = async () => {
-    const valid = await validationValues()
+    const valid = await validation()
 
-    setValidation(true)
-    setValidation(false)
+    setValidationValues({
+      activitySector: true,
+      icmsTaxPayer: true,
+      taxRegime: true,
+      entityType: true,
+      stateTaxId: true,
+      street: true,
+      neighborhood: true,
+      zipCode: true,
+      cityCode: true,
+      city: true,
+      state: true,
+      country: true,
+      streetNumber: true,
+      complement: true,
+      phone: true,
+      cnpj: true,
+      suframa: true,
+      messageType: true,
+      dockId: true,
+      dockName: true,
+    })
 
     if (valid) {
       const valueReturn = await saveConfiguration({
@@ -188,10 +233,17 @@ const EstablishmentProvider: FC = (props) => {
         },
       })
 
-      if (valueReturn.data.saveConfiguration) setShowAlert(true)
       setEdit(false)
       refetch()
+
+      if (valueReturn.data.saveConfiguration) {
+        setShowAlert(true)
+
+        return true
+      }
     }
+
+    return false
   }
 
   return (
@@ -210,9 +262,11 @@ const EstablishmentProvider: FC = (props) => {
         setShowAlert,
         handleCloseAlert,
         docks: docks?.getDocks,
-        validation,
+        validationValues,
         zip,
         validationFuntion,
+        showAlertUpdate,
+        setShowAlertUpdate,
       }}
     >
       {props.children}
