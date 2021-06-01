@@ -17,7 +17,7 @@ const ToggleArea: FC = () => {
 
   useEffect(() => {
     setState(
-      data?.getTaxConfiguration.url?.includes(window.location.origin) ?? false
+      data?.getTaxConfiguration?.url?.includes(window.location.origin) ?? false
     )
   }, [data])
 
