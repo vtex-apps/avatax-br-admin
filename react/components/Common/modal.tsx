@@ -6,6 +6,14 @@ import EstablishmentContext from '../../context/EstablishmentContext'
 const ModalArea: FC = (props) => {
   const context = useContext(EstablishmentContext)
 
+  async function save() {
+    const showAlert = await context.saveConfigurations()
+
+    if (showAlert) {
+      alert('Dados salvos')
+    }
+  }
+
   return (
     <Modal
       isOpen={context.edit}
@@ -22,8 +30,7 @@ const ModalArea: FC = (props) => {
             <Button
               variation="primary"
               onClick={() => {
-                context.saveConfigurations()
-                alert('Dados salvos com sucesso!')
+                save()
               }}
             >
               Salvar

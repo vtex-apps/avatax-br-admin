@@ -23,17 +23,25 @@ const AvataxAdmin: FC = () => {
         >
           <Tabs>
             <Tab
-              label="Adicionar estoque"
+              label="Configuração"
               active={tab.currentTab === 1}
               onClick={() => setTab({ currentTab: 1 })}
             >
+              <ToggleArea />
+            </Tab>
+            <Tab
+              label="Adicionar estoque"
+              active={tab.currentTab === 2}
+              onClick={() => setTab({ currentTab: 2 })}
+            >
+              <p>campos obrigatórios* </p>
               <AddStock />
             </Tab>
 
             <Tab
               label="Estoques atuais"
-              active={tab.currentTab === 2}
-              onClick={() => setTab({ currentTab: 2 })}
+              active={tab.currentTab === 3}
+              onClick={() => setTab({ currentTab: 3 })}
             >
               <EstablishmentProvider>
                 <CurrentStock />
@@ -41,13 +49,6 @@ const AvataxAdmin: FC = () => {
                   <EditArea />
                 </ModalArea>
               </EstablishmentProvider>
-            </Tab>
-            <Tab
-              label="Ativar/Desativar taxação"
-              active={tab.currentTab === 3}
-              onClick={() => setTab({ currentTab: 3 })}
-            >
-              <ToggleArea />
             </Tab>
           </Tabs>
         </PageBlock>

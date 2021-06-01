@@ -23,5 +23,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Arrumado a descrição do cityCode
 - Remoção do Auth e criação do aplicativo no settings 
 
+### Changed
+- Transformar o avatax-br-admin em avatax-br
+- Validação dos campos
+1. Campos obrigatórios como request, 
+2. CEP com necessariamente 8 dígitos 
+3. Validar se o CNPJ é válido
+4. Toda vez que é preenchidos os valores de endereço vindo do CEP deve-se atualizar para que esses valores não apareçam como o aviso de campo obrigatório
+5. Toda vez que se clica no botão “Adicionar” deve-se rodar a validação e preencher com avisos os campos que tem valores errados
+6. Toda vez que se sair de um campo é necessário fazer a validação do campo e retornar erro caso haja incoerência no campo
+
 ### Added
-- Initial release.
+- Initial release - 1.2.0.
