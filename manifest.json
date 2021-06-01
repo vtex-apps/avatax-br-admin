@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "avatax-br-admin",
-  "version": "0.0.0",
+  "version": "1.2.0",
   "title": "Avatax Admin",
   "description": "CHANGE_ME",
   "builders": {
