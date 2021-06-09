@@ -27,16 +27,13 @@ const EstablishmentProvider: FC = (props) => {
     street: false,
     neighborhood: false,
     zipCode: false,
-    cityCode: false,
     city: false,
     state: false,
     country: false,
     streetNumber: false,
     complement: false,
-    phone: false,
     cnpj: false,
     suframa: false,
-    messageType: false,
     dockId: false,
     dockName: false,
   })
@@ -53,23 +50,25 @@ const EstablishmentProvider: FC = (props) => {
       .required()
       .matches(/^[0-9]+$/, 'Deve conter somente números')
       .length(8),
-    cityCode: yup.number().required().positive().integer(),
     city: yup.string().required(),
     state: yup.string().required(),
     country: yup.string().required(),
     streetNumber: yup.number().required().positive().integer(),
     complement: yup.string().required(),
-    phone: yup.string().required(),
+    phone: yup.string().nullable(),
     cnpj: yup
       .string()
       .required()
       .matches(/^[0-9]+$/, 'Deve conter somente números')
       .length(14),
-    messageType: yup.string().required(),
     dockId: yup.string().required(),
     dockName: yup.string().required(),
     suframa: yup.string().nullable(),
-    stateTaxId: yup.string().nullable(),
+    stateTaxId: yup.string().when('icmsTaxPayer', {
+      is: 'True',
+      then: yup.string().required(),
+      otherwise: yup.string(),
+    }),
   })
 
   // Return 1 if its ok, 2 if is null and 3 if cep is smaller than 3 caracteres
@@ -84,6 +83,9 @@ const EstablishmentProvider: FC = (props) => {
 
           if (!returnValue) text = 'CNPJ inválido'
         }
+
+        if (key === 'stateTaxId' && value === '')
+          text = 'Preencha o campo obrigatório'
       } catch (e) {
         if (
           key === 'zipCode' &&
@@ -208,22 +210,19 @@ const EstablishmentProvider: FC = (props) => {
       icmsTaxPayer: true,
       taxRegime: true,
       entityType: true,
-      stateTaxId: true,
       street: true,
       neighborhood: true,
       zipCode: true,
-      cityCode: true,
       city: true,
       state: true,
       country: true,
       streetNumber: true,
       complement: true,
-      phone: true,
       cnpj: true,
       suframa: true,
-      messageType: true,
       dockId: true,
       dockName: true,
+      stateTaxId: establishment.icmsTaxPayer === 'True',
     })
 
     if (valid) {

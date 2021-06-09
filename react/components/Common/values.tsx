@@ -16,21 +16,6 @@ export const dockName: {
   options: [],
 }
 
-export const messageType = {
-  name: 'messageType',
-  label: 'Produtos/Serviços',
-  options: [
-    {
-      value: 'goods',
-      label: 'Produtos',
-    },
-    {
-      value: 'services',
-      label: 'Serviços',
-    },
-  ],
-}
-
 export const icmsTaxPayer = {
   name: 'icmsTaxPayer',
   label: 'Contribuinte de ICMS',
@@ -195,7 +180,7 @@ export const activitySector = {
 
 export const taxRegime = {
   name: 'taxRegime',
-  label: 'Regime Tributário Federal',
+  label: 'Regime de Tributação',
   options: [
     {
       value: 'realProfit',
@@ -285,13 +270,6 @@ export const zipCode = {
   name: 'zipCode',
   placeholder: 'Inserir CEP',
   label: 'CEP',
-  type: 'number',
-}
-
-export const cityCode = {
-  name: 'cityCode',
-  placeholder: 'Inserir código IBGE da cidade',
-  label: 'Código IBGE da cidade',
   type: 'number',
 }
 

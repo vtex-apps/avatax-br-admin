@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 
 import EstablishmentButtonSave from '../Establishment/EstablishmentButtonSave'
 import { DividerArea } from './divider'
@@ -7,7 +7,6 @@ import EstablishmentInput from '../Establishment/EstablishmentInput'
 import {
   activitySector,
   city,
-  cityCode,
   cnpj,
   complement,
   country,
@@ -15,7 +14,6 @@ import {
   dockName,
   entityType,
   icmsTaxPayer,
-  messageType,
   neighborhood,
   phone,
   state,
@@ -26,8 +24,11 @@ import {
   taxRegime,
   zipCode,
 } from './values'
+import EstablishmentContext from '../../context/EstablishmentContext'
 
 const EditArea: FC = () => {
+  const provider = useContext(EstablishmentContext)
+
   return (
     <>
       <div className="flex flex-column flex-row-ns">
@@ -37,25 +38,26 @@ const EditArea: FC = () => {
           <EstablishmentDropdown {...dockName} />
           <EstablishmentInput {...dockId} />
 
-          <EstablishmentDropdown {...messageType} />
           <EstablishmentDropdown {...activitySector} />
-          <EstablishmentDropdown {...icmsTaxPayer} />
           <EstablishmentDropdown {...taxRegime} />
 
           <EstablishmentDropdown {...entityType} />
 
-          <EstablishmentInput {...stateTaxId} />
+          <EstablishmentDropdown {...icmsTaxPayer} />
+
+          {provider.establishment.icmsTaxPayer === 'True' && (
+            <EstablishmentInput {...stateTaxId} />
+          )}
 
           <DividerArea />
 
-          <h3 className="t-heading-3">Localidade</h3>
+          <h3 className="t-heading-3">Localidade </h3>
 
           <EstablishmentInput {...zipCode} />
 
           <EstablishmentInput {...street} />
 
           <EstablishmentInput {...neighborhood} />
-          <EstablishmentInput {...cityCode} />
           <EstablishmentInput {...city} />
           <EstablishmentInput {...state} />
           <EstablishmentDropdown {...country} />

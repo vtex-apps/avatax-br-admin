@@ -1,14 +1,12 @@
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 
 import EstablishmentButtonAdd from '../Establishment/EstablishmentButtonAdd'
 import { DividerArea } from './divider'
 import EstablishmentDropdown from '../Establishment/EstablishmentDropdown'
 import EstablishmentInput from '../Establishment/EstablishmentInput'
-import EstablishmentProvider from '../Establishment/EstablishmentProvider'
 import {
   activitySector,
   city,
-  cityCode,
   cnpj,
   complement,
   country,
@@ -16,7 +14,6 @@ import {
   dockName,
   entityType,
   icmsTaxPayer,
-  messageType,
   neighborhood,
   phone,
   state,
@@ -27,46 +24,39 @@ import {
   taxRegime,
   zipCode,
 } from './values'
+import EstablishmentContext from '../../context/EstablishmentContext'
 
 const AddStock: FC = () => {
+  const provider = useContext(EstablishmentContext)
+
   return (
     <>
       <DividerArea />
 
-      <EstablishmentProvider>
-        <h3 className="t-heading-3">Informações</h3>
-
-        <EstablishmentDropdown {...dockName} />
-        <EstablishmentInput {...dockId} />
-
-        <EstablishmentDropdown {...messageType} />
-        <EstablishmentDropdown {...activitySector} />
-        <EstablishmentDropdown {...icmsTaxPayer} />
-        <EstablishmentDropdown {...taxRegime} />
-        <EstablishmentDropdown {...entityType} />
-
+      <h3 className="t-heading-3">Informações</h3>
+      <EstablishmentDropdown {...dockName} />
+      <EstablishmentInput {...dockId} />
+      <EstablishmentDropdown {...activitySector} />
+      <EstablishmentDropdown {...taxRegime} />
+      <EstablishmentDropdown {...entityType} />
+      <EstablishmentDropdown {...icmsTaxPayer} />
+      {provider.establishment.icmsTaxPayer === 'True' && (
         <EstablishmentInput {...stateTaxId} />
-
-        <DividerArea />
-
-        <h3 className="t-heading-3">Localidade</h3>
-
-        <EstablishmentInput {...zipCode} />
-        <EstablishmentInput {...street} />
-        <EstablishmentInput {...neighborhood} />
-        <EstablishmentInput {...cityCode} />
-        <EstablishmentInput {...city} />
-        <EstablishmentInput {...state} />
-
-        <EstablishmentDropdown {...country} />
-        <EstablishmentInput {...streetNumber} />
-        <EstablishmentInput {...complement} />
-        <EstablishmentInput {...phone} />
-        <EstablishmentInput {...cnpj} />
-        <EstablishmentInput {...suframa} />
-
-        <EstablishmentButtonAdd />
-      </EstablishmentProvider>
+      )}
+      <DividerArea />
+      <h3 className="t-heading-3">Localidade</h3>
+      <EstablishmentInput {...zipCode} />
+      <EstablishmentInput {...street} />
+      <EstablishmentInput {...neighborhood} />
+      <EstablishmentInput {...city} />
+      <EstablishmentInput {...state} />
+      <EstablishmentDropdown {...country} />
+      <EstablishmentInput {...streetNumber} />
+      <EstablishmentInput {...complement} />
+      <EstablishmentInput {...phone} />
+      <EstablishmentInput {...cnpj} />
+      <EstablishmentInput {...suframa} />
+      <EstablishmentButtonAdd />
     </>
   )
 }
