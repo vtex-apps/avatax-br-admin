@@ -16,21 +16,6 @@ export const dockName: {
   options: [],
 }
 
-export const messageType = {
-  name: 'messageType',
-  label: 'Produtos/Serviços',
-  options: [
-    {
-      value: 'goods',
-      label: 'Produtos',
-    },
-    {
-      value: 'services',
-      label: 'Serviços',
-    },
-  ],
-}
-
 export const icmsTaxPayer = {
   name: 'icmsTaxPayer',
   label: 'Contribuinte de ICMS',
@@ -51,72 +36,88 @@ export const activitySector = {
   label: 'Setor de atividade',
   options: [
     {
-      value: 'armedForces',
-      label: 'Forças Armadas',
+      value: 'securityPublicAgency',
+      label: 'Agência Pública de Segurança Brasileira',
     },
     {
-      value: 'auctioneer',
-      label: 'Leiloeiro',
+      value: 'wholesale',
+      label: 'Atacado',
+    },
+    {
+      value: 'generalWarehouse',
+      label: 'Armazem Geral',
     },
     {
       value: 'audiovisualIndustry',
       label: 'Audiovisual',
     },
     {
-      value: 'bondedWarehouse',
-      label: 'Depósito alfandegado',
-    },
-    {
-      value: 'broadcastingIndustry',
-      label: 'Radiodifusão',
-    },
-    {
-      value: 'construction',
-      label: 'Construção civil',
-    },
-    {
-      value: 'coops',
-      label: 'Cooperativa',
-    },
-    {
-      value: 'distributor',
-      label: 'Distribuidor',
-    },
-    {
       value: 'distributionCenter',
       label: 'Centro de Distribuição',
     },
     {
-      value: 'electricityDistributor',
-      label: 'Distribuidor de Energia Elétrica',
-    },
-    {
-      value: 'energyGeneration',
-      label: 'Gerador e Produtor De Energia Elétrica',
-    },
-    {
-      value: 'extractor',
-      label: 'Extrator',
-    },
-    {
-      value: 'farmCoop',
-      label: 'Cooperativa de Produtores',
-    },
-    {
-      value: 'filmIndustry',
-      label: 'Indústria Cinematográfica',
+      value: 'construction',
+      label: 'Construção Civil',
     },
     {
       value: 'finalConsumer',
       label: 'Consumidor Final',
     },
     {
+      value: 'coops',
+      label: 'Cooperativa',
+    },
+    {
+      value: 'farmCoop',
+      label: 'Cooperativa de Produtores',
+    },
+    {
+      value: 'bondedWarehouse',
+      label: 'Depósito Alfandegado',
+    },
+    {
+      value: 'stockWarehouse',
+      label: 'Depósito Fechado',
+    },
+    {
+      value: 'distributor',
+      label: 'Distribuidor',
+    },
+    {
+      value: 'waterDistributor',
+      label: 'Distribuidor de Água',
+    },
+    {
       value: 'fuelDistributor',
       label: 'Distribuidor de Combustível',
     },
     {
-      value: 'generalWarehouse',
-      label: 'Armazem geral',
+      value: 'electricityDistributor',
+      label: 'Distribuidor de Energia Elétrica',
+    },
+    {
+      value: 'pharmaDistributor',
+      label: 'Distribuidor de Medicamento',
+    },
+    {
+      value: 'nonProfitEntity',
+      label: 'Entidades sem Fins Lucrativos',
+    },
+    {
+      value: 'extractor',
+      label: 'Extrator',
+    },
+    {
+      value: 'armedForces',
+      label: 'Forças Armadas',
+    },
+    {
+      value: 'mealSupplier',
+      label: 'Fornecedor de Refeição',
+    },
+    {
+      value: 'energyGeneration',
+      label: 'Gerador e Produtor De Energia Elétrica',
     },
     {
       value: 'importer',
@@ -127,68 +128,52 @@ export const activitySector = {
       label: 'Industria',
     },
     {
+      value: 'filmIndustry',
+      label: 'Indústria Cinematográfica',
+    },
+    {
       value: 'itaipubiNacional',
       label: 'Itaipu Binacional',
     },
     {
-      value: 'maritimeService',
-      label: 'Serviço Marítimo',
-    },
-    {
-      value: 'mealSupplier',
-      label: 'Fornecedor de Refeição',
-    },
-    {
-      value: 'nonProfitEntity',
-      label: 'Entidades sem fins lucrativos',
-    },
-    {
-      value: 'pharmaDistributor',
-      label: 'Distribuidor de Medicamento',
+      value: 'auctioneer',
+      label: 'Leiloeiro',
     },
     {
       value: 'publicAgency',
       label: 'Orgão Publico',
     },
     {
-      value: 'religiousEstablishment',
-      label: 'Templos de Qualquer Culto',
-    },
-    {
-      value: 'retail',
-      label: 'Varejo',
-    },
-    {
       value: 'ruralProducer',
       label: 'Produtor Rural',
     },
     {
-      value: 'securityPublicAgency',
-      label: 'Agência Pública de Segurança Brasileira',
+      value: 'broadcastingIndustry',
+      label: 'Radiodifusão',
     },
     {
       value: 'service',
       label: 'Serviço',
     },
     {
-      value: 'stockWarehouse',
-      label: 'Depósito Fechado',
-    },
-    {
       value: 'telco',
       label: 'Serviço de Comunicação',
+    },
+    {
+      value: 'maritimeService',
+      label: 'Serviço Marítimo',
+    },
+    {
+      value: 'religiousEstablishment',
+      label: 'Templos de Qualquer Culto',
     },
     {
       value: 'transporter',
       label: 'Transportador/Serviço de Transportadora',
     },
     {
-      value: 'waterDistributor',
-      label: 'Distribuidor de Água',
-    },
-    {
-      value: 'wholesale',
-      label: 'Atacado',
+      value: 'retail',
+      label: 'Varejo',
     },
   ],
 }
@@ -198,12 +183,16 @@ export const taxRegime = {
   label: 'Regime Tributário Federal',
   options: [
     {
-      value: 'realProfit',
-      label: 'Lucro Real',
+      value: 'individual',
+      label: 'Indivíduo',
     },
     {
       value: 'estimatedProfit',
-      label: 'Lucro presumido',
+      label: 'Lucro Presumido',
+    },
+    {
+      value: 'realProfit',
+      label: 'Lucro Real',
     },
     {
       value: 'simplified',
@@ -221,10 +210,6 @@ export const taxRegime = {
       value: 'notApplicable',
       label: 'Não Aplicável',
     },
-    {
-      value: 'individual',
-      label: 'Indivíduo',
-    },
   ],
 }
 
@@ -233,32 +218,32 @@ export const entityType = {
   label: 'Tipo de entidade',
   options: [
     {
-      value: 'business',
-      label: 'Negócio',
-    },
-    {
-      value: 'individual',
-      label: 'Individual',
-    },
-    {
-      value: 'federalGovernment',
-      label: 'Governo federal',
+      value: 'mixedCapital',
+      label: 'Capital misto',
     },
     {
       value: 'stateGovernment',
-      label: 'Estado governamental',
-    },
-    {
-      value: 'cityGovernment',
-      label: 'Prefeitura',
+      label: 'Estado Governamental',
     },
     {
       value: 'foreign',
       label: 'Estrangeiro',
     },
     {
-      value: 'mixedCapital',
-      label: 'Capital misto',
+      value: 'federalGovernment',
+      label: 'Governo Federal',
+    },
+    {
+      value: 'individual',
+      label: 'Individual',
+    },
+    {
+      value: 'cityGovernment',
+      label: 'Prefeitura',
+    },
+    {
+      value: 'business',
+      label: 'Negócio',
     },
   ],
 }

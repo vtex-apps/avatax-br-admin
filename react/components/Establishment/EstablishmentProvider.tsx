@@ -1,11 +1,15 @@
-import React, { FC, useState } from 'react'
-import { useMutation, useQuery } from 'react-apollo'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { FC, useMemo, useState } from 'react'
+import { useLazyQuery, useMutation, useQuery } from 'react-apollo'
 import * as yup from 'yup'
 
 import EstablishmentContext from '../../context/EstablishmentContext'
 import getEstablishmentQuery from '../../queries/getEstablishment.gql'
+import getSettingsQuery from '../../queries/getSettings.gql'
 import deleteEstablishmentMutation from '../../queries/delete.gql'
 import saveConfigurationMutation from '../../queries/saveConfiguration.gql'
+import updateSettingsMutation from '../../queries/updateSettings.gql'
+import verifyPingQuery from '../../queries/verifyPing.gql'
 import getDocks from '../../queries/getDocks.gql'
 import { dockName } from '../Common/values'
 import getAddress from '../../queries/getAddress.gql'
@@ -18,6 +22,10 @@ const EstablishmentProvider: FC = (props) => {
   const [showAlert, setShowAlert] = useState(false)
   const [showAlertUpdate, setShowAlertUpdate] = useState(false)
   const [zip, setZip] = useState(false)
+  const [settings, setSettings] = useState<Settings>({})
+  const [change, setChange] = useState(false)
+  const [ping, setPing] = useState(0)
+
   const [validationValues, setValidationValues] = useState({
     activitySector: false,
     icmsTaxPayer: false,
@@ -36,7 +44,6 @@ const EstablishmentProvider: FC = (props) => {
     phone: false,
     cnpj: false,
     suframa: false,
-    messageType: false,
     dockId: false,
     dockName: false,
   })
@@ -65,7 +72,6 @@ const EstablishmentProvider: FC = (props) => {
       .required()
       .matches(/^[0-9]+$/, 'Deve conter somente números')
       .length(14),
-    messageType: yup.string().required(),
     dockId: yup.string().required(),
     dockName: yup.string().required(),
     suframa: yup.string().nullable(),
@@ -221,7 +227,6 @@ const EstablishmentProvider: FC = (props) => {
       phone: true,
       cnpj: true,
       suframa: true,
-      messageType: true,
       dockId: true,
       dockName: true,
     })
@@ -246,6 +251,95 @@ const EstablishmentProvider: FC = (props) => {
     return false
   }
 
+  // Settings
+
+  const { data: settingsValues } = useQuery<GetSettings>(getSettingsQuery)
+
+  const [updateSetting, { data: updateSettingsValues }] = useMutation(
+    updateSettingsMutation
+  )
+
+  useMemo(() => {
+    updateSettings({
+      sandbox: settingsValues?.getSettings?.useAvalaraSandboxEnv,
+      clientId: settingsValues?.getSettings.clientIdValue
+        ? settingsValues?.getSettings.clientIdValue
+        : '',
+      clientSecret: settingsValues?.getSettings.clientSecretValue
+        ? settingsValues?.getSettings.clientSecretValue
+        : '',
+    })
+  }, [settingsValues])
+
+  useMemo(() => {
+    if (updateSettingsValues !== undefined) {
+      updateSettings({
+        sandbox: updateSettingsValues.updateSettings.useAvalaraSandboxEnv,
+        clientId: updateSettingsValues.updateSettings.clientIdValue
+          ? updateSettingsValues.updateSettings.clientIdValue
+          : '',
+        clientSecret: updateSettingsValues.updateSettings.clientSecretValue
+          ? updateSettingsValues.updateSettings.clientSecretValue
+          : '',
+      })
+    }
+  }, [updateSettingsValues])
+
+  function updateSettings(object: Settings) {
+    setSettings({ ...settings, ...object })
+  }
+
+  async function updatingSettings() {
+    const values = {
+      useAvalaraSandboxEnv: settings.sandbox,
+      clientIdValue: settings.clientId,
+      clientSecretValue: settings.clientSecret,
+    }
+
+    setPing(0)
+
+    await updateSetting({ variables: { settings: values } })
+  }
+
+  async function changeSettings() {
+    if (!change) setChange(true)
+    else {
+      setChange(false)
+      updatingSettings()
+    }
+  }
+
+  async function updateSettingsSandbox(object: Settings) {
+    updateSettings(object)
+
+    const values = {
+      useAvalaraSandboxEnv: !settings.sandbox,
+      clientIdValue: settings.clientId,
+      clientSecretValue: settings.clientSecret,
+    }
+
+    await updateSetting({ variables: { settings: values } })
+  }
+
+  const [getPing, { data: verifyPingValues }] = useLazyQuery(verifyPingQuery)
+
+  useMemo(() => {
+    if (verifyPingValues !== undefined) {
+      if (verifyPingValues?.verifyPing !== '') {
+        setPing(1)
+      } else setPing(2)
+    }
+  }, [verifyPingValues])
+
+  async function verifyPing() {
+    getPing({
+      variables: {
+        clientId: settings.clientId,
+        clientSecret: settings.clientSecret,
+      },
+    })
+  }
+
   return (
     <EstablishmentContext.Provider
       value={{
@@ -267,6 +361,13 @@ const EstablishmentProvider: FC = (props) => {
         validationFuntion,
         showAlertUpdate,
         setShowAlertUpdate,
+        settings,
+        changeSettings,
+        updateSettings,
+        change,
+        ping,
+        verifyPing,
+        updateSettingsSandbox,
       }}
     >
       {props.children}

@@ -19,6 +19,13 @@ interface EstablishmentContextType {
   validationFuntion: (object: Establishment) => Promise<string>
   showAlertUpdate: boolean
   setShowAlertUpdate: (showAlert: boolean) => void
+  settings: Settings
+  changeSettings: () => void
+  updateSettings: (object: Settings) => void
+  change: boolean
+  ping: number
+  verifyPing: () => void
+  updateSettingsSandbox: (object: Settings) => void
 }
 const EstablishmentContext = React.createContext<EstablishmentContextType>({
   establishment: {},
@@ -39,6 +46,13 @@ const EstablishmentContext = React.createContext<EstablishmentContextType>({
   validationFuntion: async () => '',
   showAlertUpdate: false,
   setShowAlertUpdate: () => {},
+  settings: {},
+  changeSettings: () => {},
+  updateSettings: () => {},
+  change: false,
+  ping: 0,
+  verifyPing: () => {},
+  updateSettingsSandbox: () => {},
 })
 
 export default EstablishmentContext

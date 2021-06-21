@@ -16,7 +16,6 @@ interface Establishment {
   phone?: string
   cnpj?: string
   suframa?: string
-  messageType?: string
   dockId?: string
   dockName?: string
   [index: string]: string
@@ -44,7 +43,6 @@ interface EstablishmentValidation {
   phone?: boolean
   cnpj?: boolean
   suframa?: boolean
-  messageType?: boolean
   dockId?: boolean
   dockName?: boolean
   [index: string]: boolean
