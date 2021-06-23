@@ -50,7 +50,7 @@ const EstablishmentProvider: FC = (props) => {
 
   const schema = yup.object().shape({
     activitySector: yup.string().required(),
-    icmsTaxPayer: yup.string().required(),
+    icmsTaxPayer: yup.boolean().required(),
     taxRegime: yup.string().required(),
     entityType: yup.string().required(),
     street: yup.string().required(),
@@ -187,7 +187,7 @@ const EstablishmentProvider: FC = (props) => {
     setEdit(true)
   }
 
-  const deleteEstablishments = async (documentId: string) => {
+  const deleteEstablishments = async (documentId: string | boolean) => {
     await deleteEstablishment({ variables: { documentId } })
     refetch()
   }

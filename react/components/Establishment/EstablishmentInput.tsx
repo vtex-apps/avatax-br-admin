@@ -27,7 +27,9 @@ function EstablishmentInput({
 
   if (name !== 'suframa' && name !== 'stateTaxId') required = `${label}*`
 
-  const validation = async (event: { target: { value?: string } }) => {
+  const validation = async (event: {
+    target: { value?: string | boolean }
+  }) => {
     const value = await provider.validationFuntion({
       [name]: event.target.value ?? '',
     })

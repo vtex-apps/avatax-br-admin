@@ -8,7 +8,7 @@ interface EstablishmentContextType {
   loading: boolean
   establishmentList?: Establishment[]
   update: (establishment: Establishment) => void
-  deleteEstablishments: (documentId: string) => void
+  deleteEstablishments: (documentId: string | boolean) => void
   saveConfigurations: () => Promise<boolean>
   showAlert: boolean
   setShowAlert: (showAlert: boolean) => void

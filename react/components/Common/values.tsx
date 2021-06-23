@@ -21,11 +21,11 @@ export const icmsTaxPayer = {
   label: 'Contribuinte de ICMS',
   options: [
     {
-      value: 'True',
+      value: true,
       label: 'Sim',
     },
     {
-      value: 'false',
+      value: false,
       label: 'Não',
     },
   ],
