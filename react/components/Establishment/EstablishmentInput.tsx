@@ -8,6 +8,7 @@ interface Props {
   placeholder: string
   label: string
   type?: string
+  maxLength?: number
 }
 
 function EstablishmentInput({
@@ -15,6 +16,7 @@ function EstablishmentInput({
   placeholder,
   label,
   type = 'string',
+  maxLength,
 }: Props) {
   const provider = useContext(EstablishmentContext)
   const [text, setText] = useState('')
@@ -52,6 +54,7 @@ function EstablishmentInput({
         onChange={updateValue}
         type={type}
         onBlur={validation}
+        maxLength={maxLength}
       />
       <p className="mt2" style={{ color: 'red', fontSize: '12px' }}>
         {text}

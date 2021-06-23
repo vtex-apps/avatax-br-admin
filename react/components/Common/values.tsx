@@ -290,6 +290,7 @@ export const state = {
   name: 'state',
   placeholder: 'Inserir estado',
   label: 'Estado',
+  maxLength: 2,
 }
 
 export const country = {
