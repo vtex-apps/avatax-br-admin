@@ -6,7 +6,7 @@ import CurrentStock from './components/Common/CurrentStock'
 import EditArea from './components/Common/editArea'
 import ModalArea from './components/Common/modal'
 import EstablishmentProvider from './components/Establishment/EstablishmentProvider'
-import ToggleArea from './components/Common/toggle'
+import Settings from './components/Common/settings'
 
 const AvataxAdmin: FC = () => {
   const [tab, setTab] = useState({
@@ -27,7 +27,9 @@ const AvataxAdmin: FC = () => {
               active={tab.currentTab === 1}
               onClick={() => setTab({ currentTab: 1 })}
             >
-              <ToggleArea />
+              <EstablishmentProvider>
+                <Settings />
+              </EstablishmentProvider>
             </Tab>
             <Tab
               label="Adicionar estoque"

@@ -1,6 +1,6 @@
 interface Establishment {
   activitySector?: string
-  icmsTaxPayer?: string
+  icmsTaxPayer?: boolean
   taxRegime?: string
   entityType?: string
   stateTaxId?: string
@@ -16,10 +16,9 @@ interface Establishment {
   phone?: string
   cnpj?: string
   suframa?: string
-  messageType?: string
   dockId?: string
   dockName?: string
-  [index: string]: string
+  [index: string]: string | boolean
 }
 
 interface GetEstablishment {
@@ -44,7 +43,6 @@ interface EstablishmentValidation {
   phone?: boolean
   cnpj?: boolean
   suframa?: boolean
-  messageType?: boolean
   dockId?: boolean
   dockName?: boolean
   [index: string]: boolean

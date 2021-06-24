@@ -12,36 +12,9 @@
   },
   "dependencies": {
     "vtex.styleguide": "9.x",
-    "vtex.avatax-br-service": "0.x",
-    "vtex.avatax-br-tax-protocol": "0.x"
+    "vtex.avatax-br-service": "1.x",
+    "vtex.avatax-br-tax-protocol": "1.x"
   },
   "policies": [],
-  "settingsSchema": {
-    "title": "Avalara Tax Calculator for Brazil",
-    "type": "object",
-    "properties": {
-      "useAvalaraSandboxEnv": {
-        "title": "Usar ambiente de sandbox",
-        "description": "Consultas serão feitas no ambiente de sandbox da Avalara.",
-        "type": "boolean",
-        "default": false
-      },
-      "clientIdValue": {
-        "title": "Insira seu Client ID",
-        "description": "Adicione o seu Client ID da Avalara",
-        "type": "string"
-      },
-      "clientSecretValue": {
-        "title": "Insira seu Client Secret",
-        "description": "Adicione o seu Client Secret da Avalara",
-        "type": "string"
-      },
-      "avalaraCompanyIdValue": {
-        "title": "Insira seu Avalara Company ID",
-        "description": "Adicione o seu Company ID da Avalara",
-        "type": "string"
-      }
-    }
-  },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

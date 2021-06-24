@@ -1,5 +1,5 @@
-query getEstablishment{
- establishments  @context(provider: "vtex.avatax-br-service@0.x") {
+query getEstablishment {
+  establishments @context(provider: "vtex.avatax-br-service@1.x") {
     id
     activitySector
     icmsTaxPayer
@@ -18,7 +18,6 @@ query getEstablishment{
     phone
     cnpj
     suframa
-    messageType
     dockId
     dockName
     clientId

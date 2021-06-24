@@ -2,7 +2,6 @@ import React, { FC, useEffect, useState } from 'react'
 import { useMutation, useQuery } from 'react-apollo'
 import { Toggle } from 'vtex.styleguide'
 
-import { DividerArea } from './divider'
 import setTaxConfigurationMutation from '../../queries/setTaxConfiguration.gql'
 import getTaxConfiguration from '../../queries/getTaxConfiguration.gql'
 
@@ -35,7 +34,6 @@ const ToggleArea: FC = () => {
 
   return (
     <>
-      <DividerArea />
       Status do conector da Avalara:
       <br />
       <br />
