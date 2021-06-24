@@ -6,14 +6,16 @@ import EstablishmentContext from '../../context/EstablishmentContext'
 interface Props {
   name: string
   label: string
-  options: Array<{ value: string; label: string }>
+  options: Array<{ value: string | boolean; label: string }>
 }
 
 function EstablishmentDropdown({ name, label, options }: Props) {
   const provider = useContext(EstablishmentContext)
   const [text, setText] = useState('')
 
-  const validation = async (event: { target: { value?: string } }) => {
+  const validation = async (event: {
+    target: { value?: string | boolean }
+  }) => {
     const value = await provider.validationFuntion({
       [name]: event.target.value ?? '',
     })
@@ -21,8 +23,12 @@ function EstablishmentDropdown({ name, label, options }: Props) {
     setText(value)
   }
 
-  const updateValue = (event: { target: { value?: string } }) => {
-    provider.setEstablishment({ [name]: event.target.value ?? '' })
+  const updateValue = (event: { target: { value?: string | boolean } }) => {
+    if (event.target.value === 'true')
+      provider.setEstablishment({ [name]: true ?? '' })
+    else if (event.target.value === 'false')
+      provider.setEstablishment({ [name]: false ?? '' })
+    else provider.setEstablishment({ [name]: event.target.value ?? '' })
     validation({ target: { value: event.target.value } })
   }
 
