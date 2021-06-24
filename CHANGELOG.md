@@ -1,6 +1,8 @@
 # Changelog
 ## [Unreleased]
 
+## [2.0.0] - 2021-06-24
+
 ### Added
 - Authentication Test
 - Settings on the configurations tab on the app
