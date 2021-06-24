@@ -1,6 +1,13 @@
 # Changelog
 ## [Unreleased]
 
+### Added
+- Authentication Test
+- Settings on the configurations tab on the app
+
+### Fixed
+- Removed some unused fields
+
 ### Fixed
 - Correção de erro de toggle em workspace master.
 
