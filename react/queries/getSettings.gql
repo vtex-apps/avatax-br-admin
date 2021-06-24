@@ -1,5 +1,5 @@
 query getSettings {
-  getSettings @context(provider: "vtex.avatax-br-service@0.x") {
+  getSettings @context(provider: "vtex.avatax-br-service@1.x") {
     useAvalaraSandboxEnv
     clientIdValue
     clientSecretValue

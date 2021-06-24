@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "vtex.styleguide": "9.x",
-    "vtex.avatax-br-service": "0.x",
-    "vtex.avatax-br-tax-protocol": "0.x"
+    "vtex.avatax-br-service": "1.x",
+    "vtex.avatax-br-tax-protocol": "1.x"
   },
   "policies": [],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
