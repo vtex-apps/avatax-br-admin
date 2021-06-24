@@ -17,7 +17,7 @@ const Sandbox: FC = () => {
               : ' c-danger active-c-danger ml2'
           }
         >
-          {provider.settings.sandbox ? ' Sanbox' : ' Produção'}
+          {provider.settings.sandbox ? ' Sandbox' : ' Produção'}
         </span>
         <br />
         <br />
