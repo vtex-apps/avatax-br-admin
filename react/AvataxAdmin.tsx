@@ -7,6 +7,8 @@ import EditArea from './components/Common/editArea'
 import ModalArea from './components/Common/modal'
 import EstablishmentProvider from './components/Establishment/EstablishmentProvider'
 import ToggleArea from './components/Common/toggle'
+import { LogForm } from './components/Logs/LogForm'
+import LogProvider from './components/Logs/LogProvider'
 
 const AvataxAdmin: FC = () => {
   const [tab, setTab] = useState({
@@ -49,6 +51,15 @@ const AvataxAdmin: FC = () => {
                   <EditArea />
                 </ModalArea>
               </EstablishmentProvider>
+            </Tab>
+            <Tab
+              label="Logs"
+              active={tab.currentTab === 4}
+              onClick={() => setTab({ currentTab: 4 })}
+            >
+              <LogProvider page={1} pageSize={5}>
+                <LogForm />
+              </LogProvider>
             </Tab>
           </Tabs>
         </PageBlock>

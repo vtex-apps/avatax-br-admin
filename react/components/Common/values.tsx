@@ -1,3 +1,5 @@
+import { activitySectors } from '../../utils/constants/activitySector'
+
 export const dockId = {
   name: 'dockId',
   placeholder: 'Inserir ID da doca',
@@ -49,148 +51,13 @@ export const icmsTaxPayer = {
 export const activitySector = {
   name: 'activitySector',
   label: 'Setor de atividade',
-  options: [
-    {
-      value: 'armedForces',
-      label: 'Forças Armadas',
-    },
-    {
-      value: 'auctioneer',
-      label: 'Leiloeiro',
-    },
-    {
-      value: 'audiovisualIndustry',
-      label: 'Audiovisual',
-    },
-    {
-      value: 'bondedWarehouse',
-      label: 'Depósito alfandegado',
-    },
-    {
-      value: 'broadcastingIndustry',
-      label: 'Radiodifusão',
-    },
-    {
-      value: 'construction',
-      label: 'Construção civil',
-    },
-    {
-      value: 'coops',
-      label: 'Cooperativa',
-    },
-    {
-      value: 'distributor',
-      label: 'Distribuidor',
-    },
-    {
-      value: 'distributionCenter',
-      label: 'Centro de Distribuição',
-    },
-    {
-      value: 'electricityDistributor',
-      label: 'Distribuidor de Energia Elétrica',
-    },
-    {
-      value: 'energyGeneration',
-      label: 'Gerador e Produtor De Energia Elétrica',
-    },
-    {
-      value: 'extractor',
-      label: 'Extrator',
-    },
-    {
-      value: 'farmCoop',
-      label: 'Cooperativa de Produtores',
-    },
-    {
-      value: 'filmIndustry',
-      label: 'Indústria Cinematográfica',
-    },
-    {
-      value: 'finalConsumer',
-      label: 'Consumidor Final',
-    },
-    {
-      value: 'fuelDistributor',
-      label: 'Distribuidor de Combustível',
-    },
-    {
-      value: 'generalWarehouse',
-      label: 'Armazem geral',
-    },
-    {
-      value: 'importer',
-      label: 'Importadora',
-    },
-    {
-      value: 'industry',
-      label: 'Industria',
-    },
-    {
-      value: 'itaipubiNacional',
-      label: 'Itaipu Binacional',
-    },
-    {
-      value: 'maritimeService',
-      label: 'Serviço Marítimo',
-    },
-    {
-      value: 'mealSupplier',
-      label: 'Fornecedor de Refeição',
-    },
-    {
-      value: 'nonProfitEntity',
-      label: 'Entidades sem fins lucrativos',
-    },
-    {
-      value: 'pharmaDistributor',
-      label: 'Distribuidor de Medicamento',
-    },
-    {
-      value: 'publicAgency',
-      label: 'Orgão Publico',
-    },
-    {
-      value: 'religiousEstablishment',
-      label: 'Templos de Qualquer Culto',
-    },
-    {
-      value: 'retail',
-      label: 'Varejo',
-    },
-    {
-      value: 'ruralProducer',
-      label: 'Produtor Rural',
-    },
-    {
-      value: 'securityPublicAgency',
-      label: 'Agência Pública de Segurança Brasileira',
-    },
-    {
-      value: 'service',
-      label: 'Serviço',
-    },
-    {
-      value: 'stockWarehouse',
-      label: 'Depósito Fechado',
-    },
-    {
-      value: 'telco',
-      label: 'Serviço de Comunicação',
-    },
-    {
-      value: 'transporter',
-      label: 'Transportador/Serviço de Transportadora',
-    },
-    {
-      value: 'waterDistributor',
-      label: 'Distribuidor de Água',
-    },
-    {
-      value: 'wholesale',
-      label: 'Atacado',
-    },
-  ],
+  options: Object.entries(activitySectors)
+    .map((obj) => {
+      const [key, value] = obj
+
+      return { value: key, label: value }
+    })
+    .sort((a, b) => (a.label < b.label ? -1 : 1)),
 }
 
 export const taxRegime = {
