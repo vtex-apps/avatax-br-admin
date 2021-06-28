@@ -18,31 +18,16 @@ export const dockName: {
   options: [],
 }
 
-export const messageType = {
-  name: 'messageType',
-  label: 'Produtos/Serviços',
-  options: [
-    {
-      value: 'goods',
-      label: 'Produtos',
-    },
-    {
-      value: 'services',
-      label: 'Serviços',
-    },
-  ],
-}
-
 export const icmsTaxPayer = {
   name: 'icmsTaxPayer',
   label: 'Contribuinte de ICMS',
   options: [
     {
-      value: 'True',
+      value: true,
       label: 'Sim',
     },
     {
-      value: 'false',
+      value: false,
       label: 'Não',
     },
   ],
@@ -65,12 +50,16 @@ export const taxRegime = {
   label: 'Regime Tributário Federal',
   options: [
     {
-      value: 'realProfit',
-      label: 'Lucro Real',
+      value: 'individual',
+      label: 'Indivíduo',
     },
     {
       value: 'estimatedProfit',
-      label: 'Lucro presumido',
+      label: 'Lucro Presumido',
+    },
+    {
+      value: 'realProfit',
+      label: 'Lucro Real',
     },
     {
       value: 'simplified',
@@ -88,10 +77,6 @@ export const taxRegime = {
       value: 'notApplicable',
       label: 'Não Aplicável',
     },
-    {
-      value: 'individual',
-      label: 'Indivíduo',
-    },
   ],
 }
 
@@ -100,32 +85,32 @@ export const entityType = {
   label: 'Tipo de entidade',
   options: [
     {
-      value: 'business',
-      label: 'Negócio',
-    },
-    {
-      value: 'individual',
-      label: 'Individual',
-    },
-    {
-      value: 'federalGovernment',
-      label: 'Governo federal',
+      value: 'mixedCapital',
+      label: 'Capital misto',
     },
     {
       value: 'stateGovernment',
-      label: 'Estado governamental',
-    },
-    {
-      value: 'cityGovernment',
-      label: 'Prefeitura',
+      label: 'Estado Governamental',
     },
     {
       value: 'foreign',
       label: 'Estrangeiro',
     },
     {
-      value: 'mixedCapital',
-      label: 'Capital misto',
+      value: 'federalGovernment',
+      label: 'Governo Federal',
+    },
+    {
+      value: 'individual',
+      label: 'Individual',
+    },
+    {
+      value: 'cityGovernment',
+      label: 'Prefeitura',
+    },
+    {
+      value: 'business',
+      label: 'Negócio',
     },
   ],
 }
@@ -172,6 +157,7 @@ export const state = {
   name: 'state',
   placeholder: 'Inserir estado',
   label: 'Estado',
+  maxLength: 2,
 }
 
 export const country = {

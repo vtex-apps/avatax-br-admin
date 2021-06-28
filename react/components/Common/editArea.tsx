@@ -15,7 +15,6 @@ import {
   dockName,
   entityType,
   icmsTaxPayer,
-  messageType,
   neighborhood,
   phone,
   state,
@@ -37,7 +36,6 @@ const EditArea: FC = () => {
           <EstablishmentDropdown {...dockName} />
           <EstablishmentInput {...dockId} />
 
-          <EstablishmentDropdown {...messageType} />
           <EstablishmentDropdown {...activitySector} />
           <EstablishmentDropdown {...icmsTaxPayer} />
           <EstablishmentDropdown {...taxRegime} />
