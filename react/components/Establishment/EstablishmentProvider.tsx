@@ -336,6 +336,7 @@ const EstablishmentProvider: FC = (props) => {
       variables: {
         clientId: settings.clientId,
         clientSecret: settings.clientSecret,
+        sandbox: settings.sandbox,
       },
     })
   }
