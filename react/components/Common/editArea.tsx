@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 
 import EstablishmentButtonSave from '../Establishment/EstablishmentButtonSave'
 import { DividerArea } from './divider'
@@ -7,7 +7,6 @@ import EstablishmentInput from '../Establishment/EstablishmentInput'
 import {
   activitySector,
   city,
-  cityCode,
   cnpj,
   complement,
   country,
@@ -25,8 +24,11 @@ import {
   taxRegime,
   zipCode,
 } from './values'
+import EstablishmentContext from '../../context/EstablishmentContext'
 
 const EditArea: FC = () => {
+  const provider = useContext(EstablishmentContext)
+
   return (
     <>
       <div className="flex flex-column flex-row-ns">
@@ -42,7 +44,9 @@ const EditArea: FC = () => {
 
           <EstablishmentDropdown {...entityType} />
 
-          <EstablishmentInput {...stateTaxId} />
+          {provider.establishment.icmsTaxPayer === true && (
+            <EstablishmentInput {...stateTaxId} />
+          )}
 
           <DividerArea />
 
@@ -53,7 +57,6 @@ const EditArea: FC = () => {
           <EstablishmentInput {...street} />
 
           <EstablishmentInput {...neighborhood} />
-          <EstablishmentInput {...cityCode} />
           <EstablishmentInput {...city} />
           <EstablishmentInput {...state} />
           <EstablishmentDropdown {...country} />

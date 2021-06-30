@@ -180,7 +180,7 @@ export const activitySector = {
 
 export const taxRegime = {
   name: 'taxRegime',
-  label: 'Regime Tributário Federal',
+  label: 'Regime de Tributação',
   options: [
     {
       value: 'individual',
