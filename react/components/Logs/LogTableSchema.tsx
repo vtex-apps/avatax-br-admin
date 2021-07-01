@@ -15,11 +15,11 @@ export const LogTableSchema = {
     },
     createdIn: {
       title: 'Data/Hora ↓',
-      minWidth: 140,
+      minWidth: 160,
     },
     email: {
       title: 'Cliente',
-      minWidth: 180,
+      minWidth: 250,
     },
     establishment_dockName: {
       title: 'Doca',
@@ -31,7 +31,7 @@ export const LogTableSchema = {
     },
     state: {
       title: 'Estado',
-      minWidth: 70,
+      minWidth: 75,
     },
     activitySector: {
       title: 'Setor de Atividade',

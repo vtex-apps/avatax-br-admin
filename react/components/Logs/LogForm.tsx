@@ -1,7 +1,8 @@
 import React, { useContext, useEffect } from 'react'
-import { Table } from 'vtex.styleguide'
+import { Table, ButtonWithIcon } from 'vtex.styleguide'
 import FileSaver from 'file-saver'
 
+import Refresh from '../../assets/icons/refresh.png'
 import LogContext from '../../context/LogContext'
 import { LogTableSchema } from './LogTableSchema'
 import parseLogs from './logTableParser'
@@ -34,15 +35,27 @@ export const LogForm = () => {
 
   return (
     <div className="mv6">
-      <div>
-        Aqui você encontra todos os resultados dos cálculos de impostos
-        efetuados.
+      <div className="flex justify-between">
+        <div>
+          Aqui você encontra todos os resultados dos cálculos de impostos
+          efetuados.
+        </div>
+        <div className="mr2">
+          <ButtonWithIcon
+            onClick={() => context.refetch()}
+            icon={<img src={Refresh} alt="Atualizar" />}
+            variation="tertiary"
+          >
+            <span className="c-on-base">Atualizar</span>
+          </ButtonWithIcon>
+        </div>
       </div>
       <Table
         fullWidth
         schema={LogTableSchema}
         items={parsedLogs}
         density="high"
+        loading={context.loading || context.reloading}
         toolbar={{
           fields: {
             label: 'Alterar colunas visíveis',
