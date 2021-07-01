@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { ChangeEvent, useContext, useEffect } from 'react'
 import { Table, ButtonWithIcon } from 'vtex.styleguide'
 import FileSaver from 'file-saver'
 
@@ -52,11 +52,20 @@ export const LogForm = () => {
       </div>
       <Table
         fullWidth
+        emptyStateLabel="Nenhum resultado encontrado."
         schema={LogTableSchema}
         items={parsedLogs}
         density="high"
         loading={context.loading || context.reloading}
         toolbar={{
+          inputSearch: {
+            value: context.searchTerm,
+            placeholder: 'Número do Pedido...',
+            onChange: (e: ChangeEvent<HTMLInputElement>) =>
+              context.setSearchTerm(e.target.value ?? ''),
+            onClear: () => context.refetch(''),
+            onSubmit: () => context.refetch(),
+          },
           fields: {
             label: 'Alterar colunas visíveis',
             showAllLabel: 'Exibir tudo',
