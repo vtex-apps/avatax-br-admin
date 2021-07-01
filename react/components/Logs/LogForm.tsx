@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext, useEffect } from 'react'
+import React, { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { Table, ButtonWithIcon } from 'vtex.styleguide'
 import FileSaver from 'file-saver'
 
@@ -12,6 +12,7 @@ export const LogForm = () => {
   const context = useContext(LogContext)
   const paginationContext = usePagination(context)
   const parsedLogs = context.logs ? context.logs.map(parseLogs) : []
+  const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
     if (!context.loading) {
@@ -59,12 +60,18 @@ export const LogForm = () => {
         loading={context.loading || context.reloading}
         toolbar={{
           inputSearch: {
-            value: context.searchTerm,
+            value: searchTerm,
             placeholder: 'Número do Pedido...',
             onChange: (e: ChangeEvent<HTMLInputElement>) =>
-              context.setSearchTerm(e.target.value ?? ''),
-            onClear: () => context.refetch(''),
-            onSubmit: () => context.refetch(),
+              setSearchTerm(e.target.value ?? ''),
+            onClear: () => {
+              paginationContext.resetPagination()
+              context.setSearchTerm('')
+            },
+            onSubmit: (e: ChangeEvent<HTMLInputElement>) => {
+              paginationContext.resetPagination()
+              context.setSearchTerm(e.target.value ?? '')
+            },
           },
           fields: {
             label: 'Alterar colunas visíveis',

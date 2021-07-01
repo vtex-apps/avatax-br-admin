@@ -7,10 +7,7 @@ interface LogContextType {
   pagination?: Pagination
   searchTerm?: string
   setSearchTerm: (term: string, callback?: () => void) => void
-  setPage: (
-    page: number,
-    pageSize: number
-  ) => Promise<CalculationLogData> | void
+  setPage: (page: number, pageSize: number) => void
   refetch: (searchTerm?: string) => void
 }
 const LogContext = React.createContext<LogContextType>({

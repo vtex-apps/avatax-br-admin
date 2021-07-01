@@ -10,7 +10,11 @@ const LogProvider: FC<{ page: number; pageSize: number }> = (props: {
   pageSize: number
 }) => {
   const [reloading, setReloading] = useState(false)
-  const [searchTerm, setSearchTerm] = useState<string>('')
+  const [search, setSearch] = useState({
+    page: props.page,
+    pageSize: props.pageSize,
+    searchTerm: '',
+  })
 
   const { data, loading, refetch } = useQuery<
     CalculationLogQueryResult,
@@ -18,26 +22,25 @@ const LogProvider: FC<{ page: number; pageSize: number }> = (props: {
   >(getLogsQuery, {
     variables: {
       params: {
-        page: props.page,
-        pageSize: props.pageSize,
+        page: search.page,
+        pageSize: search.pageSize,
+        searchTerm: search.searchTerm,
       },
     },
   })
 
   const setPage = async (page: number, pageSize: number) => {
-    return (await refetch({ params: { page, pageSize, searchTerm } })).data
-      .getLogs
+    setSearch({ ...search, page, pageSize })
   }
 
-  const refetchFn = async (term?: string) => {
+  const refetchFn = async () => {
     if (!data?.getLogs.pagination) return
     setReloading(true)
-    if (term) setSearchTerm(term)
     await refetch({
       params: {
         page: data?.getLogs.pagination.page,
         pageSize: data?.getLogs.pagination.pageSize,
-        searchTerm: term ?? searchTerm,
+        searchTerm: search.searchTerm,
       },
     })
     setReloading(false)
@@ -52,8 +55,16 @@ const LogProvider: FC<{ page: number; pageSize: number }> = (props: {
         pagination: data?.getLogs.pagination,
         setPage,
         refetch: refetchFn,
-        searchTerm,
-        setSearchTerm,
+        searchTerm: search.searchTerm,
+        setSearchTerm: (term?: string) => {
+          if (search.searchTerm !== term) {
+            setSearch({
+              ...search,
+              page: search.searchTerm !== term ? 1 : search.page,
+              searchTerm: term ?? '',
+            })
+          }
+        },
       }}
     >
       {props.children}
