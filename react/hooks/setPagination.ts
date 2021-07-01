@@ -14,15 +14,18 @@ function usePagination<T extends PaginationContext>(context: T) {
   }
 
   const handleNext = async () => {
-    await context.setPage(pageNumber, perPage)
-    setPageNumber(pageNumber + 1)
+    const page = pageNumber + 1
+
+    await context.setPage(page, perPage)
+    setPageNumber(page)
   }
 
   const handlePrev = async () => {
-    if (pageNumber > 0) {
-      await context.setPage(pageNumber, perPage)
-      setPageNumber(pageNumber - 1)
-    }
+    if (pageNumber <= 0) return
+    const page = pageNumber - 1
+
+    await context.setPage(page, perPage)
+    setPageNumber(page)
   }
 
   const handlePerPageChange = async (e: ChangeEvent<HTMLInputElement>) => {
