@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import { Table } from 'vtex.styleguide'
+import FileSaver from 'file-saver'
 
 import LogContext from '../../context/LogContext'
-import { logTableSchema } from './logTableSchema'
+import { LogTableSchema } from './LogTableSchema'
 import parseLogs from './logTableParser'
 import usePagination from '../../hooks/setPagination'
 
@@ -17,17 +18,31 @@ export const LogForm = () => {
     }
   }, [context.loading, context.pagination?.total, paginationContext])
 
+  const exportLogs = () => {
+    if (!context.logs) return
+    const content = JSON.stringify(context.logs, null, 2)
+
+    const blob = new Blob([content], {
+      type: 'text/plain;charset=utf-8',
+    })
+
+    FileSaver.saveAs(
+      blob,
+      `logs_from-${paginationContext.pagination.currentItemFrom}-to-${paginationContext.pagination.currentItemTo}.json`
+    )
+  }
+
   return (
     <div className="mv6">
       <div>
         Aqui você encontra todos os resultados dos cálculos de impostos
         efetuados.
       </div>
-      <div>Clique nas linhas para obter mais informações.</div>
       <Table
         fullWidth
-        schema={logTableSchema}
+        schema={LogTableSchema}
         items={parsedLogs}
+        density="high"
         toolbar={{
           fields: {
             label: 'Alterar colunas visíveis',
@@ -36,7 +51,7 @@ export const LogForm = () => {
           },
           download: {
             label: 'Exportar Logs',
-            handleCallback: () => {},
+            handleCallback: exportLogs,
           },
         }}
         pagination={{

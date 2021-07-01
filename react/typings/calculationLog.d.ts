@@ -61,7 +61,6 @@ interface CalculationLog {
   createdIn: string
   payload: string
   orderId: string
-  fullLog: string
 }
 
 interface CalculationLogQueryResult {

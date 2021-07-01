@@ -58,7 +58,6 @@ query getLogs($params: LogParamsInput) {
       createdIn
       payload
       orderId
-      fullLog
     }
   }
 }

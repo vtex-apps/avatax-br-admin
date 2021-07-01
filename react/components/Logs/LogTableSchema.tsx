@@ -1,20 +1,33 @@
-export const logTableSchema = {
+import React from 'react'
+
+import { LogViewButton } from './LogViewButton'
+
+export const LogTableSchema = {
   properties: {
+    view: {
+      title: 'Detalhes',
+      minWidth: 75,
+      cellRenderer: ({ cellData }: { cellData: CalculationLog }) => {
+        const logView = <LogViewButton {...cellData} />
+
+        return logView
+      },
+    },
     createdIn: {
       title: 'Data/Hora ↓',
-      minWidth: 170,
+      minWidth: 140,
     },
     email: {
       title: 'Cliente',
-      minWidth: 150,
+      minWidth: 180,
     },
     establishment_dockName: {
       title: 'Doca',
-      minWidth: 100,
+      minWidth: 120,
     },
     city: {
       title: 'Cidade',
-      minWidth: 200,
+      minWidth: 180,
     },
     state: {
       title: 'Estado',
@@ -26,7 +39,7 @@ export const logTableSchema = {
     },
     numberOfProducts: {
       title: 'Produtos',
-      minWidth: 100,
+      minWidth: 70,
     },
     productsTotal: {
       title: 'Valor Prod.',
@@ -42,7 +55,7 @@ export const logTableSchema = {
     },
     includedTaxesTotal: {
       title: 'Total Inclusos',
-      minWidth: 170,
+      minWidth: 140,
     },
     addedTaxes: {
       title: 'Impostos Destacados',
@@ -50,7 +63,7 @@ export const logTableSchema = {
     },
     addedTaxesTotal: {
       title: 'Total Destacados',
-      minWidth: 170,
+      minWidth: 140,
     },
   },
 }
