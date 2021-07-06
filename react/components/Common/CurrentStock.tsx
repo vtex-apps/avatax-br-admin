@@ -1,37 +1,41 @@
 import React, { FC, useContext } from 'react'
+import { useIntl } from 'react-intl'
 import { Table } from 'vtex.styleguide'
 
 import EstablishmentContext from '../../context/EstablishmentContext'
+import { currentStock } from '../../utils/definedMessages'
 
 const CurrentStock: FC = () => {
   const context = useContext(EstablishmentContext)
 
+  const intl = useIntl()
   const defaultSchema = {
     properties: {
       id: {
-        title: 'ID',
+        title: intl.formatMessage(currentStock.id),
       },
       dockName: {
-        title: 'Estoque',
+        title: intl.formatMessage(currentStock.dockName),
       },
     },
   }
 
   const lineActions = [
     {
-      label: () => `Editar`,
+      label: () => intl.formatMessage(currentStock.edit),
       onClick: (data: { rowData: Establishment }) =>
         context.update(data.rowData),
     },
     {
-      label: () => `Deletar`,
+      label: () => intl.formatMessage(currentStock.delete),
       isDangerous: true,
       onClick: (data: { rowData: Establishment }) =>
         context.deleteEstablishments(data.rowData.id),
     },
   ]
 
-  if (context.loading) return <div>Carregando...</div>
+  if (context.loading)
+    return <div>{intl.formatMessage(currentStock.loading)}</div>
 
   return (
     <>

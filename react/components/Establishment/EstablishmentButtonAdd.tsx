@@ -1,10 +1,14 @@
 import React, { FC, useContext } from 'react'
+import { useIntl } from 'react-intl'
 import { Button, Alert } from 'vtex.styleguide'
 
 import EstablishmentContext from '../../context/EstablishmentContext'
+import { buttonAdd } from '../../utils/definedMessages'
 
 const EstablishmentButtonAdd: FC = () => {
   const context = useContext(EstablishmentContext)
+
+  const intl = useIntl()
 
   return (
     <>
@@ -15,13 +19,13 @@ const EstablishmentButtonAdd: FC = () => {
             size="large"
             onClick={() => context.saveConfigurations()}
           >
-            Adicionar
+            {intl.formatMessage(buttonAdd.add)}
           </Button>
         </span>
       </div>
       {context.showAlert === true ? (
         <Alert type="success" onClose={context.handleCloseAlert}>
-          Dados salvos!
+          {intl.formatMessage(buttonAdd.dataSave)}
         </Alert>
       ) : null}
     </>

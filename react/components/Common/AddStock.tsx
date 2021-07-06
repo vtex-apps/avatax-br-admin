@@ -1,67 +1,53 @@
 import React, { FC } from 'react'
+import { useIntl } from 'react-intl'
 
 import EstablishmentButtonAdd from '../Establishment/EstablishmentButtonAdd'
 import { DividerArea } from './divider'
 import EstablishmentDropdown from '../Establishment/EstablishmentDropdown'
 import EstablishmentInput from '../Establishment/EstablishmentInput'
 import EstablishmentProvider from '../Establishment/EstablishmentProvider'
-import {
-  activitySector,
-  city,
-  cityCode,
-  cnpj,
-  complement,
-  country,
-  dockId,
-  dockName,
-  entityType,
-  icmsTaxPayer,
-  neighborhood,
-  phone,
-  state,
-  stateTaxId,
-  street,
-  streetNumber,
-  suframa,
-  taxRegime,
-  zipCode,
-} from './values'
+import Values from './values'
+import { stock } from '../../utils/definedMessages'
 
 const AddStock: FC = () => {
+  const intl = useIntl()
+
+  const allValues: Values = Values()
+
   return (
     <>
       <DividerArea />
 
       <EstablishmentProvider>
-        <h3 className="t-heading-3">Informações</h3>
+        <h3 className="t-heading-3">{intl.formatMessage(stock.info)}</h3>
 
-        <EstablishmentDropdown {...dockName} />
-        <EstablishmentInput {...dockId} />
+        <EstablishmentDropdown {...allValues.dockName} />
+        <EstablishmentInput {...allValues.dockId} />
 
-        <EstablishmentDropdown {...activitySector} />
-        <EstablishmentDropdown {...icmsTaxPayer} />
-        <EstablishmentDropdown {...taxRegime} />
-        <EstablishmentDropdown {...entityType} />
+        <EstablishmentDropdown {...allValues.activitySector} />
+        <EstablishmentDropdown {...allValues.icmsTaxPayer} />
+        <EstablishmentDropdown {...allValues.taxRegime} />
+        <EstablishmentDropdown {...allValues.entityType} />
 
-        <EstablishmentInput {...stateTaxId} />
+        <EstablishmentInput {...allValues.stateTaxId} />
 
         <DividerArea />
 
-        <h3 className="t-heading-3">Localidade</h3>
+        <h3 className="t-heading-3">{intl.formatMessage(stock.place)}</h3>
 
-        <EstablishmentInput {...zipCode} />
-        <EstablishmentInput {...street} />
-        <EstablishmentInput {...neighborhood} />
-        <EstablishmentInput {...cityCode} />
-        <EstablishmentInput {...city} />
-        <EstablishmentInput {...state} />
+        <EstablishmentInput {...allValues.zipCode} />
+        <EstablishmentInput {...allValues.street} />
+        <EstablishmentInput {...allValues.neighborhood} />
+        <EstablishmentInput {...allValues.cityCode} />
+        <EstablishmentInput {...allValues.city} />
+        <EstablishmentInput {...allValues.state} />
 
-        <EstablishmentDropdown {...country} />
-        <EstablishmentInput {...streetNumber} />
-        <EstablishmentInput {...complement} />
-        <EstablishmentInput {...phone} />
-        <EstablishmentInput {...cnpj} />
-        <EstablishmentInput {...suframa} />
+        <EstablishmentDropdown {...allValues.country} />
+        <EstablishmentInput {...allValues.streetNumber} />
+        <EstablishmentInput {...allValues.complement} />
+        <EstablishmentInput {...allValues.phone} />
+        <EstablishmentInput {...allValues.cnpj} />
+        <EstablishmentInput {...allValues.suframa} />
 
         <EstablishmentButtonAdd />
       </EstablishmentProvider>

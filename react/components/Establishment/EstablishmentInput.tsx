@@ -5,8 +5,8 @@ import EstablishmentContext from '../../context/EstablishmentContext'
 
 interface Props {
   name: string
-  placeholder: string
-  label: string
+  placeholder?: string
+  label?: string
   type?: string
   maxLength?: number
 }

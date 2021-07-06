@@ -1,29 +1,33 @@
 import React, { FC, useContext } from 'react'
+import { useIntl } from 'react-intl'
 import { Modal, Button } from 'vtex.styleguide'
 
 import EstablishmentContext from '../../context/EstablishmentContext'
+import { modal } from '../../utils/definedMessages'
 
 const ModalArea: FC = (props) => {
   const context = useContext(EstablishmentContext)
+
+  const intl = useIntl()
 
   async function save() {
     const showAlert = await context.saveConfigurations()
 
     if (showAlert) {
-      alert('Dados salvos')
+      alert(intl.formatMessage(modal.data))
     }
   }
 
   return (
     <Modal
       isOpen={context.edit}
-      title="Editar Estoque"
+      title={intl.formatMessage(modal.edit)}
       responsiveFullScreen
       bottomBar={
         <div className="nowrap">
           <span className="mr4">
             <Button variation="tertiary" onClick={() => context.setEdit(false)}>
-              Cancelar
+              {intl.formatMessage(modal.cancel)}
             </Button>
           </span>
           <span>
@@ -33,7 +37,7 @@ const ModalArea: FC = (props) => {
                 save()
               }}
             >
-              Salvar
+              {intl.formatMessage(modal.save)}
             </Button>
           </span>
         </div>

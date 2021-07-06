@@ -2,6 +2,7 @@
 import React, { FC, useMemo, useState } from 'react'
 import { useLazyQuery, useMutation, useQuery } from 'react-apollo'
 import * as yup from 'yup'
+import { useIntl } from 'react-intl'
 
 import EstablishmentContext from '../../context/EstablishmentContext'
 import getEstablishmentQuery from '../../queries/getEstablishment.gql'
@@ -11,9 +12,9 @@ import saveConfigurationMutation from '../../queries/saveConfiguration.gql'
 import updateSettingsMutation from '../../queries/updateSettings.gql'
 import verifyPingQuery from '../../queries/verifyPing.gql'
 import getDocks from '../../queries/getDocks.gql'
-import { dockName } from '../Common/values'
 import getAddress from '../../queries/getAddress.gql'
 import { cnpjValidation } from './validCnpj'
+import { provider } from '../../utils/definedMessages'
 
 const EstablishmentProvider: FC = (props) => {
   const [establishment, setEstablishments] = useState<Establishment>({})
@@ -48,6 +49,7 @@ const EstablishmentProvider: FC = (props) => {
     dockName: false,
   })
 
+  const intl = useIntl()
   const schema = yup.object().shape({
     activitySector: yup.string().required(),
     icmsTaxPayer: yup.boolean().required(),
@@ -58,7 +60,7 @@ const EstablishmentProvider: FC = (props) => {
     zipCode: yup
       .string()
       .required()
-      .matches(/^[0-9]+$/, 'Deve conter somente números')
+      .matches(/^[0-9]+$/, intl.formatMessage(provider.number))
       .length(8),
     cityCode: yup.number().required().positive().integer(),
     city: yup.string().required(),
@@ -70,7 +72,7 @@ const EstablishmentProvider: FC = (props) => {
     cnpj: yup
       .string()
       .required()
-      .matches(/^[0-9]+$/, 'Deve conter somente números')
+      .matches(/^[0-9]+$/, intl.formatMessage(provider.number))
       .length(14),
     dockId: yup.string().required(),
     dockName: yup.string().required(),
@@ -88,20 +90,20 @@ const EstablishmentProvider: FC = (props) => {
         if (key === 'cnpj') {
           const returnValue = cnpjValidation(value)
 
-          if (!returnValue) text = 'CNPJ inválido'
+          if (!returnValue) text = intl.formatMessage(provider.cnpj)
         }
       } catch (e) {
         if (
           key === 'zipCode' &&
           e.errors[0] === 'zipCode must be exactly 8 characters'
         )
-          text = 'CEP deve conter 8 caracteres'
+          text = intl.formatMessage(provider.zipcode)
         else if (
           key === 'cnpj' &&
           e.errors[0] === 'cnpj must be exactly 14 characters'
         )
-          text = 'CNPJ deve conter 14 caracteres'
-        else text = 'Preencha o campo obrigatório'
+          text = intl.formatMessage(provider.cnpjLength)
+        else text = intl.formatMessage(provider.empty)
       }
     }
 
@@ -115,13 +117,6 @@ const EstablishmentProvider: FC = (props) => {
   const { data: docks } = useQuery<GetDocks>(getDocks)
 
   const valueDocks = docks?.getDocks
-
-  if (dockName.options.length === 0) {
-    valueDocks?.forEach((element) => {
-      dockName.options.push({ value: element.name, label: element.name })
-    })
-  }
-
   const setEstablishment = (object: Establishment) => {
     setEstablishments({
       ...establishment,
