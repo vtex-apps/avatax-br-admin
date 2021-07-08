@@ -71,12 +71,6 @@ export const ping = defineMessages({
   },
 })
 
-export const modalLimit = defineMessages({
-  limit: {
-    id: 'avatax-admin/limit',
-  },
-})
-
 export const sandbox = defineMessages({
   environment: {
     id: 'avatax-admin.environment',
@@ -198,13 +192,13 @@ export const values = defineMessages({
   activityAudiovisual: {
     id: 'avatax-admin.activity.audiovisual',
   },
-  activityDistribution: {
+  activityDistributionCenter: {
     id: 'avatax-admin.activity.distribution',
   },
   activityConstruction: {
     id: 'avatax-admin.activity.construction',
   },
-  activityConsumer: {
+  activityFinalConsumer: {
     id: 'avatax-admin.activity.consumer',
   },
   activityCoops: {
@@ -234,7 +228,7 @@ export const values = defineMessages({
   activityDistributorPharma: {
     id: 'avatax-admin.activity.distributor.pharma',
   },
-  activityEntity: {
+  activityNonProfitEntity: {
     id: 'avatax-admin.activity.entity',
   },
   activityExtractor: {
@@ -246,7 +240,7 @@ export const values = defineMessages({
   activityMeal: {
     id: 'avatax-admin.activity.meal',
   },
-  activityGeneration: {
+  activityEnergyGeneration: {
     id: 'avatax-admin.activity.generation',
   },
   activityImporter: {
@@ -264,7 +258,7 @@ export const values = defineMessages({
   activityAuctioneer: {
     id: 'avatax-admin.activity.auctioneer',
   },
-  activityAgency: {
+  activityPublicAgency: {
     id: 'avatax-admin.activity.agency',
   },
   activityRural: {
@@ -416,5 +410,83 @@ export const values = defineMessages({
   },
   suframaLabel: {
     id: 'avatax-admin.suframa.label',
+  },
+})
+
+export const logMessages = defineMessages({
+  formCaption: {
+    id: 'avatax-admin.logs-caption',
+  },
+  refreshButton: {
+    id: 'avatax-admin.logs-refresh-button',
+  },
+  downloadButton: {
+    id: 'avatax-admin.logs-download-button',
+  },
+  orderFilterPlaceholder: {
+    id: 'avatax-admin.logs-order-input-placeholder',
+  },
+  tableNoResults: {
+    id: 'avatax-admin.logs-no-result',
+  },
+  tableFieldsCaption: {
+    id: 'avatax-admin.logs-table-fields-caption',
+  },
+  tableColumnsShowAll: {
+    id: 'avatax-admin.logs-table-show-all',
+  },
+  tableColumnsHideAll: {
+    id: 'avatax-admin.logs-table-hide-all',
+  },
+  tableShowRows: {
+    id: 'avatax-admin.logs-table-show-rows',
+  },
+  tableRowsOf: {
+    id: 'avatax-admin.logs-table-rows-of',
+  },
+})
+
+export const logTableSchemaMessages = defineMessages({
+  details: {
+    id: 'avatax-admin.logs-schema-details',
+  },
+  createdIn: {
+    id: 'avatax-admin.logs-schema-createdIn',
+  },
+  client: {
+    id: 'avatax-admin.logs-schema-client',
+  },
+  dockName: {
+    id: 'avatax-admin.logs-schema-dockName',
+  },
+  city: {
+    id: 'avatax-admin.logs-schema-city',
+  },
+  state: {
+    id: 'avatax-admin.logs-schema-state',
+  },
+  activitySector: {
+    id: 'avatax-admin.logs-schema-activitySector',
+  },
+  numberOfProducts: {
+    id: 'avatax-admin.logs-schema-numberOfProducts',
+  },
+  productsTotal: {
+    id: 'avatax-admin.logs-schema-productsTotal',
+  },
+  freightTotal: {
+    id: 'avatax-admin.logs-schema-freightTotal',
+  },
+  includedTaxes: {
+    id: 'avatax-admin.logs-schema-includedTaxes',
+  },
+  includedTaxesTotal: {
+    id: 'avatax-admin.logs-schema-includedTaxesTotal',
+  },
+  addedTaxes: {
+    id: 'avatax-admin.logs-schema-addedTaxes',
+  },
+  addedTaxesTotal: {
+    id: 'avatax-admin.logs-schema-addedTaxesTotal',
   },
 })

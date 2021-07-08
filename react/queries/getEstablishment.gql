@@ -19,8 +19,5 @@ query getEstablishment {
     suframa
     dockId
     dockName
-    clientId
-    clientSecret
-    clientCompanyLocation
   }
 }

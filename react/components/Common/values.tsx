@@ -1,6 +1,7 @@
 import { useQuery } from 'react-apollo'
 import { MessageDescriptor, useIntl } from 'react-intl'
 
+import { activitySectors } from '../../utils/constants/activitySector'
 import { values } from '../../utils/definedMessages'
 import getDocks from '../../queries/getDocks.gql'
 
@@ -25,7 +26,23 @@ export const dockNameValues = (
   }
 }
 
-export const icmsTaxPayerValeus = (
+export const activitySectorValues = (
+  formatMessage: (desc: MessageDescriptor) => string
+) => {
+  return {
+    name: 'activitySector',
+    label: 'Setor de atividade',
+    options: Object.entries(activitySectors)
+      .map((obj) => {
+        const [key, value] = obj
+
+        return { value: key, label: formatMessage(value) }
+      })
+      .sort((a, b) => (a.label < b.label ? -1 : 1)),
+  }
+}
+
+export const icmsTaxPayerValues = (
   formatMessage: (desc: MessageDescriptor) => string
 ) => {
   return {
@@ -39,157 +56,6 @@ export const icmsTaxPayerValeus = (
       {
         value: false,
         label: formatMessage(values.icmsOptionsFalse),
-      },
-    ],
-  }
-}
-
-export const activitySectorValues = (
-  formatMessage: (desc: MessageDescriptor) => string
-) => {
-  return {
-    name: 'activitySector',
-    label: formatMessage(values.activityLabel),
-    options: [
-      {
-        value: 'securityPublicAgency',
-        label: formatMessage(values.activitySecurity),
-      },
-      {
-        value: 'wholesale',
-        label: formatMessage(values.activityWholesale),
-      },
-      {
-        value: 'generalWarehouse',
-        label: formatMessage(values.activityWarehouseGeneral),
-      },
-      {
-        value: 'audiovisualIndustry',
-        label: formatMessage(values.activityAudiovisual),
-      },
-      {
-        value: 'distributionCenter',
-        label: formatMessage(values.activityDistribution),
-      },
-      {
-        value: 'construction',
-        label: formatMessage(values.activityConstruction),
-      },
-      {
-        value: 'finalConsumer',
-        label: formatMessage(values.activityConsumer),
-      },
-      {
-        value: 'coops',
-        label: formatMessage(values.activityCoops),
-      },
-      {
-        value: 'farmCoop',
-        label: formatMessage(values.activityFarmCoop),
-      },
-      {
-        value: 'bondedWarehouse',
-        label: formatMessage(values.activityWarehouseBonded),
-      },
-      {
-        value: 'stockWarehouse',
-        label: formatMessage(values.activityWarehouseStock),
-      },
-      {
-        value: 'distributor',
-        label: formatMessage(values.activityDistributor),
-      },
-      {
-        value: 'waterDistributor',
-        label: formatMessage(values.activityDistributorWater),
-      },
-      {
-        value: 'fuelDistributor',
-        label: formatMessage(values.activityDistributorFuel),
-      },
-      {
-        value: 'electricityDistributor',
-        label: formatMessage(values.activityDistributorEletricity),
-      },
-      {
-        value: 'pharmaDistributor',
-        label: formatMessage(values.activityDistributorPharma),
-      },
-      {
-        value: 'nonProfitEntity',
-        label: formatMessage(values.activityEntity),
-      },
-      {
-        value: 'extractor',
-        label: formatMessage(values.activityExtractor),
-      },
-      {
-        value: 'armedForces',
-        label: formatMessage(values.activityArmed),
-      },
-      {
-        value: 'mealSupplier',
-        label: formatMessage(values.activityMeal),
-      },
-      {
-        value: 'energyGeneration',
-        label: formatMessage(values.activityGeneration),
-      },
-      {
-        value: 'importer',
-        label: formatMessage(values.activityImporter),
-      },
-      {
-        value: 'industry',
-        label: formatMessage(values.activityIndustry),
-      },
-      {
-        value: 'filmIndustry',
-        label: formatMessage(values.activityFilm),
-      },
-      {
-        value: 'itaipubiNacional',
-        label: formatMessage(values.activityItaipu),
-      },
-      {
-        value: 'auctioneer',
-        label: formatMessage(values.activityAuctioneer),
-      },
-      {
-        value: 'publicAgency',
-        label: formatMessage(values.activityAgency),
-      },
-      {
-        value: 'ruralProducer',
-        label: formatMessage(values.activityRural),
-      },
-      {
-        value: 'broadcastingIndustry',
-        label: formatMessage(values.activityBroadcasting),
-      },
-      {
-        value: 'service',
-        label: formatMessage(values.activityService),
-      },
-      {
-        value: 'telco',
-        label: formatMessage(values.activityTelco),
-      },
-      {
-        value: 'maritimeService',
-        label: formatMessage(values.activityMaritime),
-      },
-      {
-        value: 'religiousEstablishment',
-        label: formatMessage(values.activityReligious),
-      },
-      {
-        value: 'transporter',
-        label: formatMessage(values.activityTransporter),
-      },
-      {
-        value: 'retail',
-        label: formatMessage(values.activityRetail),
       },
     ],
   }
@@ -346,7 +212,7 @@ export const stateValues = (
   }
 }
 
-export const countryValeus = (
+export const countryValues = (
   formatMessage: (desc: MessageDescriptor) => string
 ) => {
   return {
@@ -433,7 +299,7 @@ function Values() {
     name: string
     label: string
     options: Array<{ value: boolean; label: string }>
-  } = icmsTaxPayerValeus(intl.formatMessage)
+  } = icmsTaxPayerValues(intl.formatMessage)
 
   const activitySector: {
     name: string
@@ -499,7 +365,7 @@ function Values() {
     name: string
     label: string
     options: Array<{ value: string; label: string }>
-  } = countryValeus(intl.formatMessage)
+  } = countryValues(intl.formatMessage)
 
   const streetNumber: {
     name: string

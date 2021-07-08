@@ -7,6 +7,8 @@ import CurrentStock from './components/Common/CurrentStock'
 import EditArea from './components/Common/editArea'
 import ModalArea from './components/Common/modal'
 import EstablishmentProvider from './components/Establishment/EstablishmentProvider'
+import { LogForm } from './components/Logs/LogForm'
+import LogProvider from './components/Logs/LogProvider'
 import Settings from './components/Common/settings'
 import { avatax } from './utils/definedMessages'
 
@@ -57,6 +59,15 @@ const AvataxAdmin: FC = () => {
                   <EditArea />
                 </ModalArea>
               </EstablishmentProvider>
+            </Tab>
+            <Tab
+              label="Logs"
+              active={tab.currentTab === 4}
+              onClick={() => setTab({ currentTab: 4 })}
+            >
+              <LogProvider page={1} pageSize={5}>
+                <LogForm />
+              </LogProvider>
             </Tab>
           </Tabs>
         </PageBlock>
