@@ -110,8 +110,6 @@
   "avatax-admin.city.label": "Cidade",
   "avatax-admin.state.placeholder": "Inserir estado",
   "avatax-admin.state.label": "Estado",
-  "avatax-admin.country.label": "País",
-  "avatax-admin.country.br": "Brasil",
   "avatax-admin.street.number.placeholder": "Inserir número",
   "avatax-admin.street.number.label": "Número",
   "avatax-admin.complement.placeholder": "Inserir complemento",

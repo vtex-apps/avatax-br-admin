@@ -201,21 +201,6 @@ export const stateValues = (
   }
 }
 
-export const countryValues = (
-  formatMessage: (desc: MessageDescriptor) => string
-) => {
-  return {
-    name: 'country',
-    label: formatMessage(values.countryLabel),
-    options: [
-      {
-        value: 'BRA',
-        label: formatMessage(values.countryBr),
-      },
-    ],
-  }
-}
-
 export const streetNumberValues = (
   formatMessage: (desc: MessageDescriptor) => string
 ) => {
@@ -344,12 +329,6 @@ function Values() {
     label: string
   } = stateValues(intl.formatMessage)
 
-  const country: {
-    name: string
-    label: string
-    options: Array<{ value: string; label: string }>
-  } = countryValues(intl.formatMessage)
-
   const streetNumber: {
     name: string
     placeholder: string
@@ -406,7 +385,6 @@ function Values() {
     zipCode,
     city,
     state,
-    country,
     streetNumber,
     complement,
     phone,

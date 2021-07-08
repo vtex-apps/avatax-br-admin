@@ -41,7 +41,6 @@ const EditArea: FC = () => {
           <EstablishmentInput {...allValues.neighborhood} />
           <EstablishmentInput {...allValues.city} />
           <EstablishmentInput {...allValues.state} />
-          <EstablishmentDropdown {...allValues.country} />
           <EstablishmentInput {...allValues.streetNumber} />
           <EstablishmentInput {...allValues.complement} />
           <EstablishmentInput {...allValues.phone} />

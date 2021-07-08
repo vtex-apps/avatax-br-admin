@@ -61,11 +61,6 @@ interface Values {
     placeholder: string
     label: string
   }
-  country: {
-    name: string
-    label: string
-    options: Array<{ value: string; label: string }>
-  }
   streetNumber: {
     name: string
     placeholder: string

@@ -9,7 +9,6 @@ interface Establishment {
   zipCode?: string
   city?: string
   state?: string
-  country?: string
   streetNumber?: string
   complement?: string
   phone?: string
@@ -35,7 +34,6 @@ interface EstablishmentValidation {
   zipCode?: boolean
   city?: boolean
   state?: boolean
-  country?: boolean
   streetNumber?: boolean
   complement?: boolean
   cnpj?: boolean
