@@ -5,8 +5,8 @@ import EstablishmentContext from '../../context/EstablishmentContext'
 
 interface Props {
   name: string
-  placeholder: string
-  label: string
+  placeholder?: string
+  label?: string
   type?: string
   maxLength?: number
 }
@@ -27,7 +27,7 @@ function EstablishmentInput({
 
   let required = label
 
-  if (name !== 'suframa' && name !== 'stateTaxId') required = `${label}*`
+  if (name !== 'suframa' && name !== 'phone') required = `${label}*`
 
   const validation = async (event: {
     target: { value?: string | boolean }

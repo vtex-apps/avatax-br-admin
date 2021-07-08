@@ -1,16 +1,20 @@
 import React, { FC, SyntheticEvent, useContext } from 'react'
+import { useIntl } from 'react-intl'
 import { Input, InputPassword, Button } from 'vtex.styleguide'
 
 import EstablishmentContext from '../../context/EstablishmentContext'
+import { authentication } from '../../utils/definedMessages'
 
 const Authentication: FC = () => {
   const provider = useContext(EstablishmentContext)
+
+  const intl = useIntl()
 
   return (
     <>
       <div className="w-40">
         {' '}
-        Parâmetros de autenticação:
+        {intl.formatMessage(authentication.authentication)}
         <br />
         <br />
       </div>
@@ -18,7 +22,7 @@ const Authentication: FC = () => {
         <div className="flex flex-column w-100">
           <div className="mb5">
             <Input
-              label="Insira seu Client ID"
+              label={intl.formatMessage(authentication.clientId)}
               value={provider.settings.clientId}
               size="regular"
               readOnly={!provider.change}
@@ -29,7 +33,7 @@ const Authentication: FC = () => {
           </div>
           <div className="mb5">
             <InputPassword
-              label="Insira seu Client Secret"
+              label={intl.formatMessage(authentication.clientSecret)}
               value={provider.settings.clientSecret}
               size="regular"
               readOnly={!provider.change}
@@ -47,7 +51,9 @@ const Authentication: FC = () => {
                 provider.changeSettings()
               }}
             >
-              {!provider.change ? 'Alterar valores' : 'Salvar'}
+              {!provider.change
+                ? intl.formatMessage(authentication.change)
+                : intl.formatMessage(authentication.save)}
             </Button>
           </span>
         </div>
