@@ -7,7 +7,6 @@ interface Establishment {
   street?: string
   neighborhood?: string
   zipCode?: string
-  cityCode?: string
   city?: string
   state?: string
   country?: string
@@ -34,13 +33,11 @@ interface EstablishmentValidation {
   street?: boolean
   neighborhood?: boolean
   zipCode?: boolean
-  cityCode?: boolean
   city?: boolean
   state?: boolean
   country?: boolean
   streetNumber?: boolean
   complement?: boolean
-  phone?: boolean
   cnpj?: boolean
   suframa?: boolean
   dockId?: boolean
