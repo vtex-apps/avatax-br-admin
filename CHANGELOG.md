@@ -48,6 +48,10 @@
 5. Toda vez que se clica no botão “Adicionar” deve-se rodar a validação e preencher com avisos os campos que tem valores errados
 6. Toda vez que se sair de um campo é necessário fazer a validação do campo e retornar erro caso haja incoerência no campo
 
+### Changed
+
+1. Adicionado a area de Configurações que incluem salvar os dados do Client Secret e Client ID e verificação do Ping
+
 ### Added
 
 - Initial release - 1.2.0.
