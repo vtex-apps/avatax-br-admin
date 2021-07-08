@@ -10,3 +10,4 @@
  - [token](https://github.com/vtex-apps/avatax-br-admin/pull/13)
  - [change fields](https://github.com/vtex-apps/avatax-br-admin/pull/14)
  - [Feature/log page](https://github.com/vtex-apps/avatax-br-admin/pull/16)
+ - [adding request download button in log details](https://github.com/vtex-apps/avatax-br-admin/pull/19)
