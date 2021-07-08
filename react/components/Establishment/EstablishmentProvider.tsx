@@ -60,7 +60,6 @@ const EstablishmentProvider: FC = (props) => {
       .required()
       .matches(/^[0-9]+$/, intl.formatMessage(provider.number))
       .length(8),
-    cityCode: yup.number().required().positive().integer(),
     city: yup.string().required(),
     state: yup.string().required(),
     country: yup.string().required(),
