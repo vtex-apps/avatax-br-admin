@@ -40,8 +40,10 @@ const AvataxAdmin: FC = () => {
               active={tab.currentTab === 2}
               onClick={() => setTab({ currentTab: 2 })}
             >
-              <p>{intl.formatMessage(avatax.fields)} </p>
-              <AddStock />
+              <p>{intl.formatMessage(avatax.fields)}</p>
+              <EstablishmentProvider>
+                <AddStock />
+              </EstablishmentProvider>
             </Tab>
 
             <Tab

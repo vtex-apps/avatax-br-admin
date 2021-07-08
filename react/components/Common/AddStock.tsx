@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 import { useIntl } from 'react-intl'
 
 import EstablishmentButtonAdd from '../Establishment/EstablishmentButtonAdd'
@@ -8,16 +8,16 @@ import EstablishmentInput from '../Establishment/EstablishmentInput'
 import EstablishmentProvider from '../Establishment/EstablishmentProvider'
 import Values from './values'
 import { stock } from '../../utils/definedMessages'
+import EstablishmentContext from '../../context/EstablishmentContext'
 
 const AddStock: FC = () => {
   const intl = useIntl()
-
   const allValues: Values = Values()
+  const provider = useContext(EstablishmentContext)
 
   return (
     <>
       <DividerArea />
-
       <EstablishmentProvider>
         <h3 className="t-heading-3">{intl.formatMessage(stock.info)}</h3>
 
@@ -29,7 +29,9 @@ const AddStock: FC = () => {
         <EstablishmentDropdown {...allValues.taxRegime} />
         <EstablishmentDropdown {...allValues.entityType} />
 
-        <EstablishmentInput {...allValues.stateTaxId} />
+        {provider.establishment.icmsTaxPayer === true && (
+          <EstablishmentInput {...allValues.stateTaxId} />
+        )}
 
         <DividerArea />
 
@@ -48,7 +50,6 @@ const AddStock: FC = () => {
         <EstablishmentInput {...allValues.phone} />
         <EstablishmentInput {...allValues.cnpj} />
         <EstablishmentInput {...allValues.suframa} />
-
         <EstablishmentButtonAdd />
       </EstablishmentProvider>
     </>

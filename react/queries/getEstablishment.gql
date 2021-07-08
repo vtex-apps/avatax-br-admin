@@ -9,7 +9,6 @@ query getEstablishment {
     street
     neighborhood
     zipCode
-    cityCode
     city
     state
     country
