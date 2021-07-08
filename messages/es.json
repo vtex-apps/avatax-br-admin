@@ -106,8 +106,6 @@
   "avatax-admin.neighborhood.label": "Bairro",
   "avatax-admin.zipCode.placeholder": "Inserir CEP",
   "avatax-admin.zipCode.label": "CEP",
-  "avatax-admin.city.code.placeholder": "Inserir código IBGE da cidade",
-  "avatax-admin.city.code.label": "Código IBGE da cidade",
   "avatax-admin.city.placeholder": "Inserir cidade",
   "avatax-admin.city.label": "Cidade",
   "avatax-admin.state.placeholder": "Inserir estado",

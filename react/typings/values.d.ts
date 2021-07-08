@@ -50,11 +50,7 @@ interface Values {
     placeholder: string
     label: string
   }
-  cityCode: {
-    name: string
-    placeholder: string
-    label: string
-  }
+
   city: {
     name: string
     placeholder: string

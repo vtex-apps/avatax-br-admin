@@ -357,12 +357,6 @@ export const values = defineMessages({
   zipCodeLabel: {
     id: 'avatax-admin.zipCode.label',
   },
-  cityCodePlaceholder: {
-    id: 'avatax-admin.city.code.placeholder',
-  },
-  cityCodeLabel: {
-    id: 'avatax-admin.city.code.label',
-  },
   cityPlaceholder: {
     id: 'avatax-admin.city.placeholder',
   },
