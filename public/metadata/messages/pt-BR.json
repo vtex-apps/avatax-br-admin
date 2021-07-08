@@ -1,11 +1,9 @@
 {
   "name": "Avalara Brasil",
   "headline": "Calcule os impostos e tributos sobre vendas através do conector Avalara",
-  "overview": "O App Avalara Brasil é integrado com o checkout da VTEX e permite o cálculo e exibição ",
-  "features": [
-    "Utilize todas as funcionalidades do MasterData e guarde dados sensíveis de forma segura"
-  ],
-  "additionalInformation": "Este app é em princípio uma ferramenta de desenvolvimento. Funciona automaticamente com as entidades CL/AD, porém permite a utilização de quaisquer entidades uma vez configuradas no aplicativo. É possível encontrar mais informações sobre o funcionamento interno do app através da documentação.",
+  "overview": "O App Avalara Brasil é integrado com o checkout da VTEX e permite o cálculo e exibição de taxas e impostos na loja.",
+  "features": [""],
+  "additionalInformation": "",
   "websiteURL": "https://vtex.com/",
   "support": {
     "url": "https://support.vtex.com/hc/requests"
