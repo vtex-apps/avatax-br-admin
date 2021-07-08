@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [2.1.0] - 2021-07-08
+
 ### Changed
 - Trocar o campos com texto para campos com intl
 - Second release - 2.1.0
