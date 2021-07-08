@@ -411,11 +411,20 @@ export const logMessages = defineMessages({
   formCaption: {
     id: 'avatax-admin.logs-caption',
   },
+  detailsCaption: {
+    id: 'avatax-admin.logs-details-caption',
+  },
   refreshButton: {
     id: 'avatax-admin.logs-refresh-button',
   },
   downloadButton: {
     id: 'avatax-admin.logs-download-button',
+  },
+  detailsButton: {
+    id: 'avatax-admin.logs-details-button',
+  },
+  downloadRequestButton: {
+    id: 'avatax-admin.logs-download-request-button',
   },
   orderFilterPlaceholder: {
     id: 'avatax-admin.logs-order-input-placeholder',
