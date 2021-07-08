@@ -180,17 +180,6 @@ export const zipCodeValues = (
   }
 }
 
-export const cityCodeValues = (
-  formatMessage: (desc: MessageDescriptor) => string
-) => {
-  return {
-    name: 'cityCode',
-    placeholder: formatMessage(values.cityCodePlaceholder),
-    label: formatMessage(values.cityCodeLabel),
-    type: 'number',
-  }
-}
-
 export const cityValues = (
   formatMessage: (desc: MessageDescriptor) => string
 ) => {
@@ -343,12 +332,6 @@ function Values() {
     label: string
   } = zipCodeValues(intl.formatMessage)
 
-  const cityCode: {
-    name: string
-    placeholder: string
-    label: string
-  } = cityCodeValues(intl.formatMessage)
-
   const city: {
     name: string
     placeholder: string
@@ -421,7 +404,6 @@ function Values() {
     street,
     neighborhood,
     zipCode,
-    cityCode,
     city,
     state,
     country,
