@@ -21,10 +21,13 @@ export const parse = (formatMessage: (desc: MessageDescriptor) => string) => (
     }),
     email: log.email,
     activitySector: `${truncate(
-      formatMessage(activitySectors[log.establishment.activitySector])
+      activitySectors[log.establishment.activitySector]
+        ? formatMessage(activitySectors[log.establishment.activitySector])
+        : log.establishment.activitySector
     )} → ${truncate(
-      formatMessage(activitySectors[log.client.activitySector]) ??
-        log.client.activitySector
+      activitySectors[log.client.activitySector]
+        ? formatMessage(activitySectors[log.client.activitySector])
+        : log.client.activitySector
     )}`,
     establishment_dockName: log.establishment.dockName,
     city: `${log.establishment.city} → ${log.client.city}`,
