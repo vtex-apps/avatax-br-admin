@@ -1,5 +1,5 @@
 query getLogs($params: LogParamsInput) {
-  getLogs(params: $params) @context(provider: "vtex.avatax-br-service@0.x") {
+  getLogs(params: $params) @context(provider: "vtex.avatax-br-service@1.x") {
     pagination {
       page
       pageSize
