@@ -71,12 +71,6 @@ export const ping = defineMessages({
   },
 })
 
-export const modalLimit = defineMessages({
-  limit: {
-    id: 'avatax-admin/limit',
-  },
-})
-
 export const sandbox = defineMessages({
   environment: {
     id: 'avatax-admin.environment',
@@ -198,13 +192,13 @@ export const values = defineMessages({
   activityAudiovisual: {
     id: 'avatax-admin.activity.audiovisual',
   },
-  activityDistribution: {
+  activityDistributionCenter: {
     id: 'avatax-admin.activity.distribution',
   },
   activityConstruction: {
     id: 'avatax-admin.activity.construction',
   },
-  activityConsumer: {
+  activityFinalConsumer: {
     id: 'avatax-admin.activity.consumer',
   },
   activityCoops: {
@@ -234,7 +228,7 @@ export const values = defineMessages({
   activityDistributorPharma: {
     id: 'avatax-admin.activity.distributor.pharma',
   },
-  activityEntity: {
+  activityNonProfitEntity: {
     id: 'avatax-admin.activity.entity',
   },
   activityExtractor: {
@@ -246,7 +240,7 @@ export const values = defineMessages({
   activityMeal: {
     id: 'avatax-admin.activity.meal',
   },
-  activityGeneration: {
+  activityEnergyGeneration: {
     id: 'avatax-admin.activity.generation',
   },
   activityImporter: {
@@ -264,7 +258,7 @@ export const values = defineMessages({
   activityAuctioneer: {
     id: 'avatax-admin.activity.auctioneer',
   },
-  activityAgency: {
+  activityPublicAgency: {
     id: 'avatax-admin.activity.agency',
   },
   activityRural: {

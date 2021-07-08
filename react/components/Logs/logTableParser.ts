@@ -1,9 +1,13 @@
+import { MessageDescriptor } from 'react-intl'
+
 import { activitySectors } from '../../utils/constants/activitySector'
 
 const truncate = (input: string) =>
   input && input.length > 10 ? `${input.substring(0, 10)}...` : input
 
-export const parse = (log: CalculationLog) => {
+export const parse = (formatMessage: (desc: MessageDescriptor) => string) => (
+  log: CalculationLog
+) => {
   return {
     view: log,
     createdIn: new Date(log.createdIn).toLocaleDateString('pt-BR', {
@@ -17,9 +21,10 @@ export const parse = (log: CalculationLog) => {
     }),
     email: log.email,
     activitySector: `${truncate(
-      activitySectors[log.establishment.activitySector]
+      formatMessage(activitySectors[log.establishment.activitySector])
     )} → ${truncate(
-      activitySectors[log.client.activitySector] ?? log.client.activitySector
+      formatMessage(activitySectors[log.client.activitySector]) ??
+        log.client.activitySector
     )}`,
     establishment_dockName: log.establishment.dockName,
     city: `${log.establishment.city} → ${log.client.city}`,

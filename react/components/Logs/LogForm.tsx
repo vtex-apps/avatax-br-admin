@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { Table, ButtonWithIcon } from 'vtex.styleguide'
 import FileSaver from 'file-saver'
+import { useIntl } from 'react-intl'
 
 import Refresh from '../../assets/icons/refresh.png'
 import LogContext from '../../context/LogContext'
@@ -9,9 +10,13 @@ import parseLogs from './logTableParser'
 import usePagination from '../../hooks/setPagination'
 
 export const LogForm = () => {
+  const intl = useIntl()
   const context = useContext(LogContext)
   const paginationContext = usePagination(context)
-  const parsedLogs = context.logs ? context.logs.map(parseLogs) : []
+  const parsedLogs = context.logs
+    ? context.logs.map(parseLogs(intl.formatMessage))
+    : []
+
   const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
