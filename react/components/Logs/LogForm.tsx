@@ -8,6 +8,7 @@ import LogContext from '../../context/LogContext'
 import { LogTableSchema } from './LogTableSchema'
 import parseLogs from './logTableParser'
 import usePagination from '../../hooks/setPagination'
+import { logMessages } from '../../utils/definedMessages'
 
 export const LogForm = () => {
   const intl = useIntl()
@@ -42,31 +43,35 @@ export const LogForm = () => {
   return (
     <div className="mv6">
       <div className="flex justify-between">
-        <div>
-          Aqui você encontra todos os resultados dos cálculos de impostos
-          efetuados.
-        </div>
+        <div>{intl.formatMessage(logMessages.formCaption)}</div>
         <div className="mr2">
           <ButtonWithIcon
             onClick={() => context.refetch()}
-            icon={<img src={Refresh} alt="Atualizar" />}
+            icon={
+              <img
+                src={Refresh}
+                alt={intl.formatMessage(logMessages.refreshButton)}
+              />
+            }
             variation="tertiary"
           >
-            <span className="c-on-base">Atualizar</span>
+            <span className="c-on-base">
+              {intl.formatMessage(logMessages.refreshButton)}
+            </span>
           </ButtonWithIcon>
         </div>
       </div>
       <Table
         fullWidth
-        emptyStateLabel="Nenhum resultado encontrado."
-        schema={LogTableSchema}
+        emptyStateLabel={intl.formatMessage(logMessages.tableNoResults)}
+        schema={LogTableSchema(intl.formatMessage)}
         items={parsedLogs}
         density="high"
         loading={context.loading || context.reloading}
         toolbar={{
           inputSearch: {
             value: searchTerm,
-            placeholder: 'Número do Pedido...',
+            placeholder: intl.formatMessage(logMessages.orderFilterPlaceholder),
             onChange: (e: ChangeEvent<HTMLInputElement>) =>
               setSearchTerm(e.target.value ?? ''),
             onClear: () => {
@@ -79,12 +84,12 @@ export const LogForm = () => {
             },
           },
           fields: {
-            label: 'Alterar colunas visíveis',
-            showAllLabel: 'Exibir tudo',
-            hideAllLabel: 'Ocultar tudo',
+            label: intl.formatMessage(logMessages.tableFieldsCaption),
+            showAllLabel: intl.formatMessage(logMessages.tableColumnsShowAll),
+            hideAllLabel: intl.formatMessage(logMessages.tableColumnsHideAll),
           },
           download: {
-            label: 'Exportar Logs',
+            label: intl.formatMessage(logMessages.downloadButton),
             handleCallback: exportLogs,
           },
         }}
@@ -94,8 +99,8 @@ export const LogForm = () => {
           onRowsChange: paginationContext.pagination.onRowsChange,
           currentItemFrom: paginationContext.pagination.currentItemFrom,
           currentItemTo: paginationContext.pagination.currentItemTo,
-          textShowRows: 'Mostrar linhas',
-          textOf: 'de',
+          textShowRows: intl.formatMessage(logMessages.tableShowRows),
+          textOf: intl.formatMessage(logMessages.tableRowsOf),
           totalItems: paginationContext.total,
           rowsOptions: [5, 10, 15, 25],
         }}
