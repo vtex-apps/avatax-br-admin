@@ -30,6 +30,8 @@ The following steps must be followed:
 
 First, go to MasterData on the Admin sidebar, and click on the "Advanced Settings" button. In the configurations panel, click on "Data structures". There you'll be able to edit and create MasterData structures. For this app, you need to create three new entities: AS (skus), AE (establishments) and AL (logs), and edit an existent one CL (clients).
 
+![](https://user-images.githubusercontent.com/1629129/125787544-95a06cfc-e6f3-4697-8c07-8bf589bdf891.png)
+
 ##### 1 - Avatax SKUs
 Contains relevant product data required by Avalara.
 **Acronym**: AS
@@ -43,6 +45,8 @@ Contains relevant product data required by Avalara.
 
 **skuId**: The id of the SKU in VTEX.
 **skuInfo**: A string in JSON format which should contain all needed properties to perform tax calculation. These properties will be described in a later topic (SKU integration)
+
+![](https://user-images.githubusercontent.com/1629129/125787730-39825489-97ae-414b-80f7-c7303c5d7119.png)
 
 ##### 2 - Avatax Establishments
 To Avalara, the establishments represent the source (dock) of the products being sold. There should be as many establishments as there are docks.
@@ -203,11 +207,15 @@ On the main tab we have the application's settings area, where you can turn the 
 
 You also need to fill in the **clientId** and **clientSecret** parameters. Those are provided by Avalara (or generated through their platform). After filling them in, click on  "Verify Ping" to ensure the connection is operational.
 
+![](https://user-images.githubusercontent.com/1629129/125787878-dcb9379a-8a24-40e6-bf56-0162685f3bbb.png)
+
 #### Establishment Configuration
 
 You can see that there are two stock related tabs: "Add stock" and "Current stocks". The configuration of stocks, which are equivalent to the establishment at Avalara (represented by the entity AE of MasterData), is one of the necessary steps for the adequate operation of the connector. To get started, go to the second tab, "Add Stock" and register all the establishments.
 
 Keep in mind that the connector works only for docks that have an associated establishment, so make sure that the establishments are properly registered.
+
+![](https://user-images.githubusercontent.com/1629129/125788018-0d0bb86e-5e9f-43b2-be37-ea953abc9c24.png)
 
 #### Sku Integration
 
@@ -294,13 +302,19 @@ In summary, the steps for configuring and using the connector are:
 
 To see everything working just enter your store, login and add the product to the cart. When you enter the cart, the taxes calculated by Avalara will automatically appear and the final amount will be calculated with the addition of taxes. Each operation during the checkout process, from the cart to the checkout, such as change of address, change of quantity and inclusion / removal of products, causes a new calculation and the information is automatically updated. 
 
+![](https://user-images.githubusercontent.com/1629129/125788192-7fd8fa6e-584f-448f-839f-d5dc02d0b7da.png)
+
 #### Viewing the Logs
 You can view all tax and fee calculations performed by the connector through the Logs tab.
 
 In this table you can view all the calculations performed and their city/state of origin and destination, and included/highlighted taxes. The "Refresh" button reloads the logs, and you can filter the view of the columns and display more or fewer rows through the table buttons.
 
+![](https://user-images.githubusercontent.com/1629129/125788247-0b1b4826-5d47-445c-8032-f14ecebaad88.png)
+
 If you want to view the entire contents of a calculation, simply click the icon in the "Details" column.
 
 Besides being able to analyze Avalara's answer in full, it is also possible to download just the request object (for further simulations and/or questions with Avalara).
 
-The logs screen also allows you to export the log files and filter by order number, to investigate which tax calculation was performed on a specific purchase.
+![](https://user-images.githubusercontent.com/1629129/125788312-325b2edd-4b78-4aae-8783-295a35dc5809.png)
+
+The logs screen also allows you to export the log files and filter by order number, to investigate which tax calculation was performed for a specific purchase.
