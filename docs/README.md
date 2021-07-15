@@ -6,7 +6,7 @@ This app enables tax calculations using AvaTax-Brazil V3 api services from Avala
 
 The Avatax-BR conector is an app which connects to VTEX Tax Hub allowing Avalara to calculate taxes in various B2B (or B2C) scenarios. 
 
-This app is compatible only for Brazil stores.
+This app is only compatible with Brazil stores.
 
 #### Installation
 
