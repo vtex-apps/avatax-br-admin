@@ -88,7 +88,7 @@ To Avalara, the establishments represent the source (dock) of the products being
 **state**: State of the establishment's address.
 **stateTaxId**: State registration of the company, if it is an ICMS tax payer.
 **street**: Street address of the establishment.
-**streetNumber**: Address number of the establishment
+**streetNumber**: Address number of the establishment.
 **suframa**: Suframa number ("Superintendencia da Zona Franca de Manaus").
 **taxRegime**: Company's tax regime (simplified, real profit, estimated profit, and so on)
 **zipCode**: Postal code of the establishment's address.
