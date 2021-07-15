@@ -6,7 +6,7 @@ This app enables tax calculations using AvaTax-Brazil V3 api services from Avala
 
 The Avatax-BR conector is an app which connects to VTEX Tax Hub allowing Avalara to calculate taxes in various B2B (or B2C) scenarios. 
 
-This app is compatible only for Brazil stores.
+This app is only compatible with Brazil stores.
 
 #### Installation
 
@@ -88,9 +88,9 @@ To Avalara, the establishments represent the source (dock) of the products being
 **state**: State of the establishment's address.
 **stateTaxId**: State registration of the company, if it is an ICMS tax payer.
 **street**: Street address of the establishment.
-**streetNumber**: Address number of the establishment
+**streetNumber**: Address number of the establishment.
 **suframa**: Suframa number ("Superintendencia da Zona Franca de Manaus").
-**taxRegime**: Company's tax regime (simplified, real profit, estimated profit, and so on)
+**taxRegime**: Company's tax regime (simplified, real profit, estimated profit, and so on).
 **zipCode**: Postal code of the establishment's address.
 
 ##### 3 - Avatax Logs
