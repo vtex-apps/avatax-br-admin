@@ -4,6 +4,7 @@
 
 ### Added
 - A log tab to allow querying tax calculation logs.
+- Full documentation
 
 ## [2.1.0] - 2021-07-08
 
