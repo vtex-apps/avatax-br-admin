@@ -11,7 +11,6 @@ query getEstablishment {
     zipCode
     city
     state
-    country
     streetNumber
     complement
     phone

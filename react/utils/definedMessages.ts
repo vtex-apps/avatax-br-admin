@@ -369,12 +369,6 @@ export const values = defineMessages({
   stateLabel: {
     id: 'avatax-admin.state.label',
   },
-  countryLabel: {
-    id: 'avatax-admin.country.label',
-  },
-  countryBr: {
-    id: 'avatax-admin.country.br',
-  },
   streetNumberPlaceholder: {
     id: 'avatax-admin.street.number.placeholder',
   },
