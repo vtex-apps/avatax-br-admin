@@ -290,7 +290,7 @@ Since these are private entities, it is also necessary to have authorization to 
 **AppKey/AppToken**: To get the AppKey and AppToken, log into the admin and go to the "Account Management" tab and then click on "Account". You can see all registered tokens in the security area. You can create one by clicking on "Generate appKey and appToken", then fill in the request information and click on "Generate new tokens".
 
 #### Using Avatax BR
-After finishing the setupand activating the connector your store will be able to calculate and display taxes and fees through Avalara. 
+After finishing the setup and activating the connector your store will be able to calculate and display taxes and fees through Avalara. 
 
 In summary, the steps for configuring and using the connector are:
 * MasterData Structure
