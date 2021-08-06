@@ -2,20 +2,12 @@
 
 ## [Unreleased]
 
-## [2.1.1] - 2021-07-15
-
 ### Added
 - A log tab to allow querying tax calculation logs.
 - Full documentation
 
-## [2.1.0] - 2021-07-08
-
 ### Changed
-- Trocar o campos com texto para campos com intl
-- Second release - 2.1.0
-
-### Added
-- Adicionado a area de Configurações que incluem salvar os dados do Client Secret e Client ID e verificação do Ping
+- Adding intl
 
 ## [2.0.0] - 2021-06-24
 
