@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [2.2.0] - 2021-08-06
+
 ### Added
 - A log tab to allow querying tax calculation logs.
 - Full documentation
