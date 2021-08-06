@@ -1,15 +1,20 @@
 import React, { FC, useContext } from 'react'
+import { useIntl } from 'react-intl'
 import { Checkbox } from 'vtex.styleguide'
 
 import EstablishmentContext from '../../context/EstablishmentContext'
+import { sandbox } from '../../utils/definedMessages'
 
 const Sandbox: FC = () => {
   const provider = useContext(EstablishmentContext)
 
+  const intl = useIntl()
+
   return (
     <>
       <div className="mt2 dib inline-flex">
-        {'Ambiente: '}
+        {intl.formatMessage(sandbox.environment)}
+
         <span
           className={
             provider.settings.sandbox
@@ -17,7 +22,9 @@ const Sandbox: FC = () => {
               : ' c-danger active-c-danger ml2'
           }
         >
-          {provider.settings.sandbox ? ' Sandbox' : ' Produção'}
+          {provider.settings.sandbox
+            ? intl.formatMessage(sandbox.sandbox)
+            : intl.formatMessage(sandbox.production)}
         </span>
         <br />
         <br />
@@ -26,7 +33,7 @@ const Sandbox: FC = () => {
         <Checkbox
           checked={provider.settings.sandbox}
           id="option-0"
-          label="Usar ambiente sandbox"
+          label={intl.formatMessage(sandbox.use)}
           name="default-checkbox-group"
           onChange={() =>
             provider.updateSettingsSandbox({
