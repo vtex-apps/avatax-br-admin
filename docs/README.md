@@ -318,3 +318,4 @@ Besides being able to analyze Avalara's answer in full, it is also possible to d
 ![](https://user-images.githubusercontent.com/1629129/125788312-325b2edd-4b78-4aae-8783-295a35dc5809.png)
 
 The logs screen also allows you to export the log files and filter by order number, to investigate which tax calculation was performed for a specific purchase.
+ 
