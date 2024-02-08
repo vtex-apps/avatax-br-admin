@@ -23,7 +23,7 @@
   "avatax-admin.sandbox": "Sandbox",
   "avatax-admin.production": "Produção",
   "avatax-admin.use.sandbox": "Usar ambiente sandbox",
-  "avatax-admin.status": "Status do conector da Avalara: ",
+  "avatax-admin.status": "Status do provedor da Avalara: ",
   "avatax-admin.activate": "Ativado",
   "avatax-admin.deactivate": "Desativado",
   "avatax-admin.add": "Adicionar",

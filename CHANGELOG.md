@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Portuguese and Spanish translations
+
 ## [2.2.0] - 2021-08-06
 
 ### Added
